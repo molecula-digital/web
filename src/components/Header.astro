@@ -1,0 +1,85 @@
+---
+const { navbarActiveItemID } = Astro.props;
+const activeClasses = ["text-cyan-200", "font-black"];
+import { Picture } from 'astro:assets';
+import logo from '../assets/md.svg'
+
+const sections: Array<{
+  title: string;
+  url: string;
+}> = [
+{
+    title: "Sobre nosotros",
+    url: "#about",
+  },
+  {
+    title: "Productos",
+    url: "#products",
+  },
+  {
+    title: "Contacto",
+    url: "#contact",
+  },
+  {
+    title: "Blog",
+    url: "/blog",
+  }
+];
+---
+
+<header class="fixed w-full">
+  <nav class="border-gray-200 py-2.5">
+    <div
+      class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto"
+    >
+      <a href="#" class="flex items-center">
+        <Picture
+        class="h-6 mr-3 sm:h-9" 
+        widths={[32]}
+        src={logo}
+        alt="MD Logo"
+      />
+        <span
+          class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+          >molecula.digital</span
+        >
+      </a>
+
+      <div
+        class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
+        id="mobile-menu-2"
+      >
+        <ul
+          class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
+        >
+        
+        {
+          sections.map((item) => (
+          <li>
+            <a
+              href={item.url}
+              class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >{item.title}</a
+            >
+          </li>
+          ))
+        }
+      
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script
+  define:vars={{
+    navbarActiveItemID,
+    activeClasses,
+  }}
+>
+  const activeItemElement = document.getElementById(navbarActiveItemID);
+
+  activeClasses.forEach((activeClass) => {
+    activeItemElement.classList.add(activeClass);
+  });
+</script>
