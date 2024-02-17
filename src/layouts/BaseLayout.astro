@@ -10,6 +10,7 @@ const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   navbarActiveItemID,
+  showNavigation = true,
 } = Astro.props;
 ---
 
@@ -19,7 +20,10 @@ const {
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body class="bg-white dark:bg-gray-900">
-    <Header navbarActiveItemID={navbarActiveItemID} />
+    {
+      showNavigation &&
+      <Header navbarActiveItemID={navbarActiveItemID} />
+    }
     <main id="main">
       <slot />
     </main>

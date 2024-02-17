@@ -1,11 +1,5 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { sortMDByDate } from "../utils";
-
-const MAX_POSTS = 10;
-const allPosts = await getCollection("blog");
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 import { Picture } from "astro:assets";
 import dondinero from "../assets/dondinero.png";
@@ -58,9 +52,9 @@ const teamMembers = [
     </div>
   </section>
 
-  <section id="products" class="bg-gray-50 dark:bg-gray-800">
+  <section id="products">
     <div
-      class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6"
+      class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6"
     >
       <!-- Row -->
       <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
@@ -76,16 +70,16 @@ const teamMembers = [
             ingresos y te enseña a ponerle una curita a tu salud financiera ❤️‍🩹.<br
             />
           </p>
-          <button
+          <a href="/dondinero"
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
             Website
-          </button>
-          <button
+          </a>
+    <!--       <button
             class="outline outline-green-500 outline-1 text-black font-bold py-2 px-4 mx-4 rounded"
           >
             💬 Escribele a Don Dinero
-          </button>
+          </button> -->
           <!-- List -->
           <ul
             role="list"
@@ -143,11 +137,11 @@ const teamMembers = [
               >
             </li>
           </ul>
-          <p class="mb-8 font-light lg:text-xl">
+          <p class="mb-8 font-light text-sm">
             Don Dinero se encuentra en una beta cerrada, si quieres ser parte de
             la comunidad de usuarios que están probando el bot, escríbenos a
             nuestro correo electrónico en <span
-              class="font-black text-green-500">beta[@]dondinero.app</span
+              class="font-black text-green-500">beta.dondinero[@]molecula.digital</span
             >
           </p>
         </div>
@@ -157,7 +151,7 @@ const teamMembers = [
     </div>
   </section>
 
-  <section class="bg-white dark:bg-gray-900">
+  <section>
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
       <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
         <h2
@@ -175,15 +169,14 @@ const teamMembers = [
       <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
         {
           teamMembers.map((teamMember) => (
-            <div class="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
+            <div class="items-center bg-gray-50 rounded-lg shadow flex dark:bg-gray-800 dark:border-gray-700">
               <div class="px-5">
                 <img
-                  class="w-full rounded-lg sm:rounded-none sm:rounded-l-lg mx-5"
+                  class="rounded-lg mx-5 p-5 lg:p-10"
                   src={
                     "https://avatar.iran.liara.run/username?username=" +
                     teamMember.name.split(" ").join("+")
                   }
-                  class="w-32 h-32 rounded-full"
                   alt={`Avatar of ${teamMember.name}`}
                 />
               </div>
