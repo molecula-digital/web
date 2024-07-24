@@ -2,30 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { Picture } from "astro:assets";
-import dondinero from "../assets/dondinero.png";
 import hero from "../assets/hero.png";
-
-const teamMembers = [
-  {
-    name: "Alfonso Reyes",
-    title: "CEO & Backend engineer",
-    description:
-      "Lidero la estrategía tecnoloǵica y fundamental de Mony, amo los capibaras.",
-    avatar: "https://avatar.iran.liara.run/username?username=Alfonso+Reyes",
-    social: [
-      {
-        name: "GitHub",
-        url: "https://github.com/ojoanalogo",
-      },
-    ],
-  },
-  {
-    name: "Doge Archivaldo",
-    title: "CTO",
-    description: "Va por las cocas y los tacos, también es el CTO de Mony, ama el código y el café.",
-    avatar: "https://avatar.iran.liara.run/username?username=Doge+Archivaldo",
-  },
-];
+import mony from "../assets/mockup.png";
 ---
 
 <BaseLayout navbarActiveItemID="home">
@@ -53,33 +31,37 @@ const teamMembers = [
   </section>
 
   <section id="products">
-    <div
-      class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6"
-    >
+    <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6">
       <!-- Row -->
       <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <div class="text-gray-500 sm:text-lg dark:text-gray-400">
           <h2
             class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white"
           >
-            💸💜 Mony
+            🐄💜 Hey Mony
           </h2>
-          <p class="mb-8 font-light lg:text-xl">
-            Enfocado a la gestión de finanzas personales, Mony es un bot
-            de WhatsApp que te ayuda a llevar un control de tus gastos e
-            ingresos y te enseña a ponerle una curita a tu salud financiera ❤️‍🩹.<br
-            />
+          <h3 class="text-gray-700">
+            Finanzas personales a un hola de distancia
+          </h3>
+          <p class="mb-8 font-light lg:text-md">
+            Mony es un bot de WhatsApp que te ayuda a llevar un control de tus
+            gastos e ingresos y te enseña a ponerle una curita a tu salud
+            financiera ❤️‍🩹.<br />
           </p>
-          <a href="/mony"
-            class="bg-purple-700 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+          <a
+            href="https://heymony.com"
+            target="_blank"
+            class="bg-purple-500 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
           >
             Conoce más
           </a>
-    <!--       <button
+          <a
+            href="https://wa.me/message/LLG45NDE2CPKJ1"
+            target="_blank"
             class="outline outline-purple-500 outline-1 text-black font-bold py-2 px-4 mx-4 rounded"
           >
             💬 Escribele a Mony
-          </button> -->
+          </a>
           <!-- List -->
           <ul
             role="list"
@@ -138,62 +120,14 @@ const teamMembers = [
             </li>
           </ul>
           <p class="mb-8 font-light text-sm">
-            Mony se encuentra en una beta cerrada, si quieres ser parte de
-            la comunidad de usuarios que están probando el bot, escríbenos a
+            Mony se encuentra en una beta cerrada, si quieres ser parte de la
+            comunidad de usuarios que están probando el bot, escríbenos a
             nuestro correo electrónico en <span
-              class="font-black text-purple-500">mony[@]molecula.digital</span
+              class="font-black text-purple-500">hola[@]heymony.com</span
             >
           </p>
         </div>
-
-        <Picture widths={[1200]} src={dondinero} alt="MD Logo" />
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-        <h2
-          class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
-        >
-          Nuestro equipo
-        </h2>
-        <p
-          class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400"
-        >
-          Sin el capital humano, nuestras ideas solo serían eso, conoce a
-          quienes están detrás de molecula.digital 🤠
-        </p>
-      </div>
-      <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-        {
-          teamMembers.map((teamMember) => (
-            <div class="items-center bg-gray-50 rounded-lg shadow flex dark:bg-gray-800 dark:border-gray-700">
-              <div class="px-5">
-                <img
-                  class="rounded-lg mx-5 p-5 lg:p-10"
-                  src={
-                    "https://avatar.iran.liara.run/username?username=" +
-                    teamMember.name.split(" ").join("+")
-                  }
-                  alt={`Avatar of ${teamMember.name}`}
-                />
-              </div>
-              <div class="p-5">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-                  <a href="#">{teamMember.name}</a>
-                </h3>
-                <span class="text-gray-500 dark:text-gray-400">
-                  {teamMember.title}
-                </span>
-                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
-                  {teamMember.description}
-                </p>
-              </div>
-            </div>
-          ))
-        }
+        <Picture class="drop-shadow-xl" widths={[1600]} height={800} src={mony} alt="MD Logo" />
       </div>
     </div>
   </section>
