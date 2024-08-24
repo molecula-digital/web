@@ -9,11 +9,11 @@ import mony from "../assets/mockup.png";
 <BaseLayout navbarActiveItemID="home">
   <section id="hero">
     <div
-      class="flex max-w-screen-xl px-4 pt-5 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12"
+      class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12"
     >
       <div class="mr-auto place-self-center lg:col-span-7">
         <h1
-          class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight md:text-5xl xl:text-6xl"
+          class="text-primary-800 max-w-2xl mb-4 text-4xl font-extrabold tracking-tight md:text-5xl xl:text-6xl"
         >
           Construimos productos <br />digitales <span class="text-green-600"
             >disruptivos</span
@@ -32,7 +32,7 @@ import mony from "../assets/mockup.png";
     </div>
   </section>
   <section id="reviews">
-    <div class="max-w-screen-xl px-4 py-4 mx-auto text-center">
+    <div class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto text-center">
       <figure class="max-w-screen-md mx-auto">
         <svg
           class="h-8 mx-auto mb-3 text-primary-950"
@@ -65,9 +65,8 @@ import mony from "../assets/mockup.png";
     </div>
   </section>
   <section id="products" class="bg-cream-alt">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6">
-      <!-- Row -->
-      <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+    <div class="max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto">
+      <div class="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <div class="sm:text-lg">
           <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900">
             🐄💜 Hey Mony
@@ -83,7 +82,7 @@ import mony from "../assets/mockup.png";
           <a
             href="https://heymony.com"
             target="_blank"
-            class="bg-primary-600 hover:bg-primary-900 text-white font-bold py-2 px-4 rounded"
+            class="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded"
           >
             Conoce más
           </a>
@@ -152,7 +151,7 @@ import mony from "../assets/mockup.png";
           </p>
         </div>
         <Picture
-          class="drop-shadow-xl"
+          class="flex-col drop-shadow-xl justify-center"
           widths={[1600]}
           height={800}
           src={mony}
