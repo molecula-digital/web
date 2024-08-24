@@ -19,12 +19,9 @@ const {
   <head>
     <BaseHead title={title} description={description} image={image} />
   </head>
-  <body class="bg-white dark:bg-gray-900">
-    {
-      showNavigation &&
-      <Header navbarActiveItemID={navbarActiveItemID} />
-    }
-    <main id="main">
+  <body class="bg-cream flex flex-col min-h-screen">
+    {showNavigation && <Header navbarActiveItemID={navbarActiveItemID} />}
+    <main class="flex-grow" id="main">
       <slot />
     </main>
     <Footer />
