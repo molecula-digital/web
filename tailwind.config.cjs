@@ -18,6 +18,10 @@ module.exports = {
           900: "#0d121e",
           950: "#131b20"
         },
+        defaultText: "#141b2a", // Custom default text color
+      },
+      textColor: {
+        DEFAULT: "#141b2a", // Set the default text color
       },
     },
   },

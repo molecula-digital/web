@@ -16,18 +16,19 @@ const sections: Array<{
     title: "Productos",
     url: "#products",
   },
-/*   {
+ {
     title: "Contacto",
     url: "#contact",
   },
-  {
-    title: "Blog",
-    url: "/blog",
-  } */
+
 ];
 ---
 
 <header>
+    <!-- Ribbon for release notice -->
+    <div class="bg-primary-800 text-white text-center text-xs font-medium py-2">
+      ¡Nuevo lanzamiento! 🚀 <a href="https://heymony.com" class="font-bold text-emerald-400">Hey Mony</a>
+    </div>
   <nav class="bg-cream py-8 w-full">
     <div
       class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto"
@@ -40,7 +41,7 @@ const sections: Array<{
         alt="MD Logo"
       />
         <span
-          class="self-center text-xl font-semibold whitespace-nowrap"
+          class="self-center text-primary-800 text-xl font-semibold whitespace-nowrap"
           >molecula.digital</span
         >
       </a>
@@ -52,13 +53,12 @@ const sections: Array<{
         <ul
           class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
         >
-        
         {
           sections.map((item) => (
           <li>
             <a
               href={item.url}
-              class="block py-2 pl-3 pr-4 text-gray-700"
+              class="block py-2 pl-3 pr-4 text-primary-700"
               >{item.title}</a
             >
           </li>
