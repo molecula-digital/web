@@ -6,38 +6,68 @@ import hero from "../assets/hero.png";
 import mony from "../assets/mockup-mony.png";
 import ListIconCheck from "../components/ListIconCheck.astro";
 ---
+
 <BaseLayout>
   <section id="hero">
-    <div class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
+    <div
+      class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12"
+    >
       <div class="mr-auto place-self-center">
-        <h1 class="text-primary-800 max-w-4xl mb-4 text-4xl font-extrabold tracking-tight md:text-5xl xl:text-7xl">
-          Construimos productos digitales <span class="text-green-600">disruptivos</span>
+        <h1
+          class="text-primary-800 max-w-4xl mb-4 text-4xl font-extrabold tracking-tight md:text-5xl xl:text-7xl"
+        >
+          Construimos productos digitales <span class="text-green-600"
+            >disruptivos</span
+          >
         </h1>
-        <p class="max-w-2xl mt-4 text-gray-800 lg:mb-8 text-sm md:text-md lg:text-lg">
-          Somos soñadores y hacedores apasionados por la tecnología y la innovación, comprometidos con un desarrollo digital humano.
+        <p
+          class="max-w-2xl mt-4 text-gray-800 lg:mb-8 text-sm md:text-md lg:text-lg"
+        >
+          Somos soñadores y hacedores apasionados por la tecnología y la
+          innovación, comprometidos con un desarrollo digital humano.
         </p>
       </div>
       <div>
-        <Picture widths={[1024]} src={hero} alt="Foto del autor del sitio" loading="lazy" />
+        <Picture
+          widths={[1024]}
+          src={hero}
+          alt="Foto del autor del sitio"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 
   <section id="reviews">
-    <div class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto text-center">
+    <div
+      class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto text-center"
+    >
       <figure class="max-w-screen-md mx-auto">
-        <svg class="h-8 mx-auto mb-3 text-primary-950" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"></path>
+        <svg
+          class="h-8 mx-auto mb-3 text-primary-950"
+          viewBox="0 0 24 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+            fill="currentColor"></path>
         </svg>
         <blockquote>
           <p class="text-sm lg:text-md font-medium text-gray-900">
-            Me encanta el maravilloso enfoque que tienen al construir productos, ¡son simplemente geniales! Se sumergen por completo en abordar el problema y encontrar la mejor solución con menos fricción. El cuidado y dedicación que ponen en cada idea es realmente destacable, ¡guau!
+            Me encanta el maravilloso enfoque que tienen al construir productos,
+            ¡son simplemente geniales! Se sumergen por completo en abordar el
+            problema y encontrar la mejor solución con menos fricción. El
+            cuidado y dedicación que ponen en cada idea es realmente destacable,
+            ¡guau!
           </p>
         </blockquote>
         <figcaption class="flex items-center justify-center mt-6 space-x-3">
           <div class="flex items-center divide-x-2 divide-gray-500">
             <div class="pr-3 font-medium text-gray-900">🐕 Doge</div>
-            <div class="pl-3 text-sm font-light text-gray-500">Mascota del CEO</div>
+            <div class="pl-3 text-sm font-light text-gray-500">
+              Mascota del CEO
+            </div>
           </div>
         </figcaption>
       </figure>
@@ -46,46 +76,91 @@ import ListIconCheck from "../components/ListIconCheck.astro";
 
   <section id="products" class="bg-cream-alt">
     <div class="max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto">
-      <h1 class="text-4xl text-primary-800 pt-5 underline underline-offset-3 decoration-4 decoration-emerald-800 font-black text-center">Nuestros productos</h1>
-      <p class="text-sm font-semibold pt-3 pb-10 text-primary-600 text-center">No es mucho, pero es trabajo honesto</p>
-      <div class="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+      <h1
+        class="text-4xl text-primary-800 pt-5 underline underline-offset-3 decoration-4 decoration-emerald-800 font-black text-center"
+      >
+        Nuestros productos
+      </h1>
+      <p class="text-sm font-semibold pt-3 pb-10 text-primary-600 text-center">
+        No es mucho, pero es trabajo honesto
+      </p>
+      <div
+        class="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+      >
         <div class="sm:text-lg">
-          <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900">🐄💜 Hey Mony</h2>
-          <h3 class="text-md text-bold mb-2">Finanzas personales a un hola de distancia</h3>
+          <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900">
+            🐄💜 Hey Mony
+          </h2>
+          <h3 class="text-md text-bold mb-2">
+            Finanzas personales a un hola de distancia
+          </h3>
           <p class="mb-8 font-normal text-sm lg:text-md">
-            Mony es un bot de WhatsApp que te ayuda a llevar un control de tus gastos e ingresos y te enseña a ponerle una curita a tu salud financiera ❤️‍🩹.<br />
+            Mony es un bot de WhatsApp que te ayuda a llevar un control de tus
+            gastos e ingresos y te enseña a ponerle una curita a tu salud
+            financiera ❤️‍🩹.<br />
           </p>
-          <a href="https://heymony.com" target="_blank" class="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded drop-shadow-lg" rel="noopener noreferrer" aria-label="Conoce más sobre Hey Mony">
+          <a
+            href="https://heymony.com"
+            target="_blank"
+            class="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded drop-shadow-lg"
+            rel="noopener noreferrer"
+            aria-label="Conoce más sobre Hey Mony"
+          >
             Conoce más
           </a>
-          <a href="https://wa.me/message/LLG45NDE2CPKJ1" target="_blank" class="outline outline-primary-500 outline-1 text-primary-800 font-bold py-2 px-4 mx-4 rounded" rel="noopener noreferrer" aria-label="Escribele a Mony">
+          <a
+            href="https://wa.me/message/LLG45NDE2CPKJ1"
+            target="_blank"
+            class="outline outline-primary-500 outline-1 text-primary-800 font-bold py-2 px-4 mx-4 rounded"
+            rel="noopener noreferrer"
+            aria-label="Escribele a Mony"
+          >
             💬 Escribele a Mony
           </a>
           <!-- List -->
           <ul role="list" class="pt-4 space-y-5 border-t border-gray-200 my-7">
             <li class="flex space-x-3">
               <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900">Registra todos tus gastos en cuestión de segundos</span>
+              <span class="font-medium leading-tight text-gray-900"
+                >Registra todos tus gastos en cuestión de segundos</span
+              >
             </li>
             <li class="flex space-x-3">
               <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900">Consejos de finanzas personales</span>
+              <span class="font-medium leading-tight text-gray-900"
+                >Consejos de finanzas personales</span
+              >
             </li>
             <li class="flex space-x-3">
               <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900">Conoce hacía dónde fluyen tus ingresos</span>
+              <span class="font-medium leading-tight text-gray-900"
+                >Conoce hacía dónde fluyen tus ingresos</span
+              >
             </li>
             <li class="flex space-x-3">
               <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900">Utiliza I.A para conocer tus comportamientos financieros</span>
+              <span class="font-medium leading-tight text-gray-900"
+                >Utiliza I.A para conocer tus comportamientos financieros</span
+              >
             </li>
           </ul>
           <p class="mb-8 text-sm">
-            Mony se encuentra en una beta abierta, si deseas conocer más visita el sitio web o escribenos a: <a href="mailto:hola@heymony.com" class="font-black text-purple-800">hola@heymony.com</a>
+            Mony se encuentra en una beta abierta, si deseas conocer más visita
+            el sitio web o escribenos a: <a
+              href="mailto:hola@heymony.com"
+              class="font-black text-purple-800">hola@heymony.com</a
+            >
           </p>
         </div>
         <div class="flex flex-col items-center justify-center">
-          <Picture class="drop-shadow-2xl" widths={[1500]} height={600} src={mony} alt="Mony mockup" loading="lazy" />
+          <Picture
+            class="drop-shadow-2xl"
+            widths={[1500]}
+            height={600}
+            src={mony}
+            alt="Mony mockup"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
