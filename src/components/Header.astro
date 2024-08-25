@@ -3,27 +3,24 @@ import { Picture } from "astro:assets";
 import logo from "../assets/Logo Alt.png";
 ---
 
-<header>
+<header role="banner">
   <!-- Ribbon for release notice -->
   <div class="bg-primary-800 text-white text-center text-xs font-medium py-2">
-    ¡Nuevo lanzamiento! 🚀 <a
-      href="https://heymony.com"
-      class="font-bold text-emerald-400">Hey Mony</a
-    >
+    ¡Nuevo lanzamiento! 🚀 
+    <a href="https://heymony.com" class="font-bold text-emerald-400" rel="noopener noreferrer" aria-label="Visit Hey Mony">
+      Hey Mony
+    </a>
   </div>
 
-  <nav
-    id="navigation-menu"
-    aria-label="Main menu"
-    class="bg-cream w-full py-8 flex flex-row items-center place-content-center"
-  >
+  <nav id="navigation-menu" aria-label="Main menu" class="bg-cream w-full py-8 flex flex-row items-center place-content-center">
     <div class="flex">
-      <a target="_self" href="/">
+      <a target="_self" href="/" aria-label="Go to homepage">
         <Picture
           class="h-12 object-contain"
-          widths={[900]}
+          widths={[300, 600, 900]}
           src={logo}
           alt="MD Logo"
+          loading="lazy"
         />
       </a>
     </div>

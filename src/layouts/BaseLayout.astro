@@ -9,8 +9,6 @@ const {
   image,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  navbarActiveItemID,
-  showNavigation = true,
 } = Astro.props;
 ---
 
@@ -20,8 +18,13 @@ const {
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body class="bg-cream flex flex-col min-h-screen selection:bg-green-300">
-    {showNavigation && <Header navbarActiveItemID={navbarActiveItemID} />}
-    <main class="flex-grow w-full mx-auto" id="main">
+    <Header />
+    <main
+      class="flex-grow w-full mx-auto"
+      id="main"
+      role="main"
+      aria-label="Main content"
+    >
       <slot />
     </main>
     <Footer />
