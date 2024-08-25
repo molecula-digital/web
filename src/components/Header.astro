@@ -1,26 +1,6 @@
 ---
-const { navbarActiveItemID } = Astro.props;
-const activeClasses = ["text-cyan-200", "font-black"];
 import { Picture } from "astro:assets";
 import logo from "../assets/Logo Alt.png";
-
-const sections: Array<{
-  title: string;
-  url: string;
-}> = [
-  {
-    title: "Sobre nosotros",
-    url: "#about",
-  },
-  {
-    title: "Productos",
-    url: "#products",
-  },
-  {
-    title: "Contacto",
-    url: "#contact",
-  },
-];
 ---
 
 <header>
@@ -49,16 +29,3 @@ const sections: Array<{
     </div>
   </nav>
 </header>
-
-<script
-  define:vars={{
-    navbarActiveItemID,
-    activeClasses,
-  }}
->
-  const activeItemElement = document.getElementById(navbarActiveItemID);
-
-  activeClasses.forEach((activeClass) => {
-    activeItemElement.classList.add(activeClass);
-  });
-</script>

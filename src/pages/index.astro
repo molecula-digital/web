@@ -3,7 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { Picture } from "astro:assets";
 import hero from "../assets/hero.png";
-import mony from "../assets/mockup.png";
+import mony from "../assets/mockup-mony.png";
+import ListIconCheck from "../components/ListIconCheck.astro";
 ---
 
 <BaseLayout navbarActiveItemID="home">
@@ -15,24 +16,26 @@ import mony from "../assets/mockup.png";
         <h1
           class="text-primary-800 max-w-4xl mb-4 text-4xl font-extrabold tracking-tight md:text-5xl xl:text-7xl"
         >
-          Construimos productos <br />digitales <span class="text-green-600"
+          Construimos productos digitales <span class="text-green-600"
             >disruptivos</span
           >
         </h1>
         <p
-          class="max-w-2xl mb-6 mt-8 text-gray-800 lg:mb-8 md:text-lg lg:text-lg"
+          class="max-w-2xl mt-4 text-gray-800 lg:mb-8 text-sm md:text-md lg:text-lg"
         >
           Somos soñadores y hacedores apasionados por la tecnología y la
           innovación, comprometidos con un desarrollo digital humano.
         </p>
       </div>
-      <div >
+      <div>
         <Picture widths={[1024]} src={hero} alt="Foto del autor del sitio" />
       </div>
     </div>
   </section>
   <section id="reviews">
-    <div class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto text-center">
+    <div
+      class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto text-center"
+    >
       <figure class="max-w-screen-md mx-auto">
         <svg
           class="h-8 mx-auto mb-3 text-primary-950"
@@ -64,6 +67,7 @@ import mony from "../assets/mockup.png";
       </figure>
     </div>
   </section>
+
   <section id="products" class="bg-cream-alt">
     <div class="max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto">
       <h1 class="text-4xl text-primary-800 pt-5 underline underline-offset-3 decoration-4 decoration-emerald-800 font-black text-center">Nuestros productos</span></h1>
@@ -98,67 +102,45 @@ import mony from "../assets/mockup.png";
           <!-- List -->
           <ul role="list" class="pt-4 space-y-5 border-t border-gray-200 my-7">
             <li class="flex space-x-3">
-              <!-- Icon -->
-              <svg
-                class="flex-shrink-0 w-5 h-5 text-primary-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                ><path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"></path></svg
-              >
+            <ListIconCheck />
+            <span class="font-medium leading-tight text-gray-900"
+              >Registra todos tus gastos en cuestión de segundos</span
+            >
+          </li>
+          <li class="flex space-x-3">
+            <ListIconCheck />
               <span class="font-medium leading-tight text-gray-900"
                 >Consejos de finanzas personales</span
               >
             </li>
             <li class="flex space-x-3">
-              <!-- Icon -->
-              <svg
-                class="flex-shrink-0 w-5 h-5 text-primary-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                ><path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"></path></svg
-              >
-              <span class="font-medium leading-tight text-gray-900"
-                >Conoce hacía dónde fluyen tus ingresos</span
-              >
-            </li>
-            <li class="flex space-x-3">
-              <!-- Icon -->
-              <svg
-                class="flex-shrink-0 w-5 h-5 text-primary-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                ><path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"></path></svg
-              >
-              <span class="font-medium leading-tight text-gray-900"
-                >Utiliza I.A para conocer tus comportamientos financieros</span
-              >
-            </li>
-          </ul>
-          <p class="mb-8 text-sm">
-            Mony se encuentra en una beta abierta, si deseas conocer más visita el sitio web o escribenos a: <a href="mailto:hola@heymony.com"
-              class="font-black text-purple-800">hola@heymony.com</a
+            <ListIconCheck />
+            <span class="font-medium leading-tight text-gray-900"
+              >Conoce hacía dónde fluyen tus ingresos</span
             >
-          </p>
-        </div>
-        <Picture
-          class="flex-col drop-shadow-xl justify-center"
-          widths={[1600]}
-          height={800}
-          src={mony}
-          alt="MD Logo"
-        />
+          </li>
+          <li class="flex space-x-3">
+            <ListIconCheck />
+            <span class="font-medium leading-tight text-gray-900"
+              >Utiliza I.A para conocer tus comportamientos financieros</span
+            >
+          </li>
+        </ul>
+        <p class="mb-8 text-sm">
+          Mony se encuentra en una beta abierta, si deseas conocer más visita el
+          sitio web o escribenos a: <a
+            href="mailto:hola@heymony.com"
+            class="font-black text-purple-800">hola@heymony.com</a
+          >
+        </p>
+      </div>
+      <Picture
+        class="flex-col drop-shadow-xl justify-center"
+        widths={[1500]}
+        height={600}
+        src={mony}
+        alt="MD Logo"
+      />
       </div>
     </div>
   </section>
