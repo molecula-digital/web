@@ -1,14 +1,14 @@
 ---
 const { navbarActiveItemID } = Astro.props;
 const activeClasses = ["text-cyan-200", "font-black"];
-import { Picture } from 'astro:assets';
-import logo from '../assets/md.svg'
+import { Picture } from "astro:assets";
+import logo from "../assets/Logo Alt.png";
 
 const sections: Array<{
   title: string;
   url: string;
 }> = [
-{
+  {
     title: "Sobre nosotros",
     url: "#about",
   },
@@ -16,57 +16,36 @@ const sections: Array<{
     title: "Productos",
     url: "#products",
   },
- {
+  {
     title: "Contacto",
     url: "#contact",
   },
-
 ];
 ---
 
 <header>
-    <!-- Ribbon for release notice -->
-    <div class="bg-primary-800 text-white text-center text-xs font-medium py-2">
-      ¡Nuevo lanzamiento! 🚀 <a href="https://heymony.com" class="font-bold text-emerald-400">Hey Mony</a>
-    </div>
-  <nav class="bg-cream py-8 w-full">
-    <div
-      class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto"
+  <!-- Ribbon for release notice -->
+  <div class="bg-primary-800 text-white text-center text-xs font-medium py-2">
+    ¡Nuevo lanzamiento! 🚀 <a
+      href="https://heymony.com"
+      class="font-bold text-emerald-400">Hey Mony</a
     >
-      <a href="#" class="flex items-center">
-        <Picture
-        class="h-6 mr-3 sm:h-9" 
-        widths={[32]}
-        src={logo}
-        alt="MD Logo"
-      />
-        <span
-          class="self-center text-primary-800 text-xl font-semibold whitespace-nowrap"
-          >molecula.digital</span
-        >
-      </a>
+  </div>
 
-      <div
-        class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
-        id="mobile-menu-2"
-      >
-        <ul
-          class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
-        >
-        {
-          sections.map((item) => (
-          <li>
-            <a
-              href={item.url}
-              class="block py-2 pl-3 pr-4 text-primary-700"
-              >{item.title}</a
-            >
-          </li>
-          ))
-        }
-      
-        </ul>
-      </div>
+  <nav
+    id="navigation-menu"
+    aria-label="Main menu"
+    class="bg-cream w-full py-8 flex flex-row items-center place-content-center"
+  >
+    <div class="flex">
+      <a target="_self" href="/">
+        <Picture
+          class="h-12 object-contain"
+          widths={[900]}
+          src={logo}
+          alt="MD Logo"
+        />
+      </a>
     </div>
   </nav>
 </header>

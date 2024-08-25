@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-import logo from "../assets/md.svg";
+import logo from "../assets/Logo.png";
 ---
 
 <footer class="bg-white">
@@ -10,21 +10,12 @@ import logo from "../assets/md.svg";
         href="#"
         class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900"
       >
-        <Picture
-          class="h-6 mr-3 sm:h-9"
-          widths={[32]}
-          src={logo}
-          alt="MD Logo"
-        />
-        Molecula Digital
+        <Picture class="h-10 md:h-20 object-contain" src={logo} alt="MD Logo" />
       </a>
       <p>Software Labs MD S.A.S</p>
       <ul class="flex justify-center mt-5 space-x-5">
         <li>
-          <a
-            href="#"
-            class="text-gray-500 hover:text-gray-900"
-          >
+          <a href="#" class="text-gray-500 hover:text-gray-900">
             <svg
               class="w-5 h-5"
               fill="currentColor"
