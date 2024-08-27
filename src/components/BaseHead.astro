@@ -1,7 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 
 export interface Props {
@@ -20,13 +20,13 @@ const isProd = import.meta.env.PROD;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#0e1111">
-<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#0e1111" />
+<meta name="theme-color" content="#ffffff" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -49,32 +49,32 @@ const isProd = import.meta.env.PROD;
   // render only on production
   isProd && (
     <script
-      async
-      src="https://analytics.alfon.so/script.js"
-      data-website-id="c05c1412-3334-41fb-b1e9-5783dbf2b469"
+      defer
+      src="https://umami.operations.molecula.digital/script.js"
       data-do-not-track="true"
+      data-website-id="9151f764-96aa-47c2-a0d8-dcded2f20d63"
     />
   )
 }
 
 <script>
-  function onKonamiCode(cb: { (): void; (): any; }) {
-  var input = '';
-  var key = '38384040373937396665';
-  document.addEventListener('keydown', function (e) {
-    input += ("" + e.keyCode);
-    if (input === key) {
-      return cb();
-    }
-    if (!key.indexOf(input)) return;
-    input = ("" + e.keyCode);
-  });
-}
+  function onKonamiCode(cb: { (): void; (): any }) {
+    var input = "";
+    var key = "38384040373937396665";
+    document.addEventListener("keydown", function (e) {
+      input += "" + e.keyCode;
+      if (input === key) {
+        return cb();
+      }
+      if (!key.indexOf(input)) return;
+      input = "" + e.keyCode;
+    });
+  }
 
-onKonamiCode(function () {
-  // REDIRECT TO HAPPY PATH
-  window.location.href = '/happy';
-})
+  onKonamiCode(function () {
+    // REDIRECT TO HAPPY PATH
+    window.location.href = "/happy";
+  });
 </script>
 
 <ViewTransitions />
