@@ -3,8 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { Picture } from "astro:assets";
 import hero from "../assets/hero.png";
-import mony from "../assets/mockup-mony.png";
-import ListIconCheck from "../components/ListIconCheck.astro";
+import Mony from './products/mony.astro';
 ---
 
 <BaseLayout>
@@ -31,7 +30,7 @@ import ListIconCheck from "../components/ListIconCheck.astro";
         <Picture
           widths={[1024]}
           src={hero}
-          alt="Foto del autor del sitio"
+          alt="Molecula Digital"
           loading="lazy"
         />
       </div>
@@ -84,85 +83,7 @@ import ListIconCheck from "../components/ListIconCheck.astro";
       <p class="text-sm font-semibold pt-3 pb-10 text-primary-600 text-center">
         No es mucho, pero es trabajo honesto
       </p>
-      <div
-        class="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
-      >
-        <div class="sm:text-lg">
-          <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900">
-            🐄💜 Hey Mony
-          </h2>
-          <h3 class="text-md text-bold mb-2">
-            Finanzas personales a un hola de distancia
-          </h3>
-          <p class="mb-8 font-normal text-sm lg:text-md">
-            Mony es un bot de WhatsApp que te ayuda a llevar un control de tus
-            gastos e ingresos y te enseña a ponerle una curita a tu salud
-            financiera ❤️‍🩹.<br />
-          </p>
-          <a
-            href="https://heymony.com"
-            target="_blank"
-            class="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded drop-shadow-lg"
-            rel="noopener noreferrer"
-            aria-label="Conoce más sobre Hey Mony"
-          >
-            Conoce más
-          </a>
-          <a
-            href="https://wa.me/message/LLG45NDE2CPKJ1"
-            target="_blank"
-            class="outline outline-primary-500 outline-1 text-primary-800 font-bold py-2 px-4 mx-4 rounded"
-            rel="noopener noreferrer"
-            aria-label="Escribele a Mony"
-          >
-            💬 Escribele a Mony
-          </a>
-          <!-- List -->
-          <ul role="list" class="pt-4 space-y-5 border-t border-gray-200 my-7">
-            <li class="flex space-x-3">
-              <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900"
-                >Registra todos tus gastos en cuestión de segundos</span
-              >
-            </li>
-            <li class="flex space-x-3">
-              <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900"
-                >Consejos de finanzas personales</span
-              >
-            </li>
-            <li class="flex space-x-3">
-              <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900"
-                >Conoce hacía dónde fluyen tus ingresos</span
-              >
-            </li>
-            <li class="flex space-x-3">
-              <ListIconCheck />
-              <span class="font-medium leading-tight text-gray-900"
-                >Utiliza I.A para conocer tus comportamientos financieros</span
-              >
-            </li>
-          </ul>
-          <p class="mb-8 text-sm">
-            Mony se encuentra en una beta abierta, si deseas conocer más visita
-            el sitio web o escribenos a: <a
-              href="mailto:hola@heymony.com"
-              class="font-black text-purple-800">hola@heymony.com</a
-            >
-          </p>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <Picture
-            class="drop-shadow-2xl"
-            widths={[1500]}
-            height={600}
-            src={mony}
-            alt="Mony mockup"
-            loading="lazy"
-          />
-        </div>
-      </div>
+      <Mony />
     </div>
   </section>
 </BaseLayout>
