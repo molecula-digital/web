@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
 import hero from "../assets/hero.png";
 import me from "../assets/me-1.jpg";
-import Sofinanzas from './products/sofinanzas.astro';
+import Sofinanzas from "./products/sofinanzas.astro";
 ---
 
 <BaseLayout>
@@ -18,9 +18,7 @@ import Sofinanzas from './products/sofinanzas.astro';
         >
           Construimos productos digitales <span class="text-md-green"
             >bonitos</span
-          > & <span class="text-md-green"
-            >útiles&nbsp;</span
-          >
+          > & <span class="text-md-green">útiles&nbsp;</span>
         </h1>
         <p
           class="max-w-2xl mx-auto lg:mx-0 mt-4 text-gray-700 lg:mb-8 text-base md:text-lg"
@@ -91,7 +89,6 @@ import Sofinanzas from './products/sofinanzas.astro';
     </div>
   </section>
 
-
   <section id="team" class="bg-cream">
     <div class="max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto">
       <h1
@@ -99,45 +96,70 @@ import Sofinanzas from './products/sofinanzas.astro';
       >
         Nuestro equipo
       </h1>
-      <div class="flex flex-col lg:flex-row items-center lg:items-center justify-center mt-16 gap-12">
-        <div class="w-[12rem] md:w-[16rem] aspect-[2/3] overflow-hidden drop-shadow-2xl shadow-lg bg-white p-3 pb-9 rotate-[-5deg] border border-gray-300 flex-shrink-0">
-          <Picture 
-            widths={[1024]}
-            src={me}
-            alt="Foto de Alfonso Reyes"
-            loading="lazy"
-            class="h-full w-full object-cover object-top pointer-events-none select-none"
-          />
+      <div
+        class="flex flex-col lg:flex-row items-center lg:items-center justify-center mt-8 gap-12"
+      >
+        <div class="p-6">
+          <div
+            class="w-[12rem] md:w-[16rem] aspect-[2/3] overflow-hidden drop-shadow-md shadow-md bg-white p-4 pb-9 border border-gray-300 flex-shrink-0"
+          >
+            <Picture
+              widths={[1024]}
+              src={me}
+              alt="Foto de Alfonso Reyes"
+              loading="lazy"
+              class="h-full w-full object-cover object-top pointer-events-none select-none"
+            />
+          </div>
         </div>
         <div class="text-center lg:text-left max-w-lg flex-1">
           <h2 class="text-2xl font-bold text-primary-800">Alfonso Reyes</h2>
-          <p class="text-sm text-primary-300 mt-1">CEO, CTO, Developer y todo lo que se te ocurra</p>
-          <p class="mx-auto lg:mx-0 text-gray-600 mt-4">
-            Único desarrollador detrás de molecula.digital. Entusiasta por la fotografía
-            y eternamente curioso por las nuevas tecnologías. Siempre en busca de
-            aprender algo nuevo y crear productos que impacten positivamente.
+          <p class="text-sm text-primary-300 mt-1">
+            CEO, CTO, Developer y todo lo que se te ocurra
           </p>
-          <div class="flex items-center justify-center lg:justify-start gap-4 mt-6">
-            <a 
-              href="https://twitter.com/ojoanalogo" 
-              target="_blank" 
+          <p class="mx-auto lg:mx-0 text-gray-600 mt-4">
+            Único desarrollador detrás de molecula.digital. Entusiasta por la
+            fotografía y eternamente curioso por las nuevas tecnologías. Siempre
+            en busca de aprender algo nuevo y crear productos que impacten
+            positivamente.
+          </p>
+          <div
+            class="flex items-center justify-center lg:justify-start gap-4 mt-6"
+          >
+            <a
+              href="https://twitter.com/ojoanalogo"
+              target="_blank"
               rel="noopener noreferrer"
               class="text-gray-600 hover:text-md-green transition-colors"
               aria-label="Twitter de Alfonso Reyes"
             >
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                ></path>
               </svg>
             </a>
-            <a 
-              href="https://alfon.so" 
-              target="_blank" 
+            <a
+              href="https://alfon.so"
+              target="_blank"
               rel="noopener noreferrer"
               class="text-gray-600 hover:text-md-green transition-colors"
               aria-label="Sitio web personal de Alfonso Reyes"
             >
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                ></path>
               </svg>
             </a>
           </div>
@@ -145,5 +167,4 @@ import Sofinanzas from './products/sofinanzas.astro';
       </div>
     </div>
   </section>
-  
 </BaseLayout>
