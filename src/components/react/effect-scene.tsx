@@ -87,7 +87,7 @@ export function EffectScene() {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ width: "100%", height: "100vh" }}>
+    <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
       <Canvas
         camera={{ position: [0, 0, 20], fov: 75 }}
         gl={{ alpha: true }}
