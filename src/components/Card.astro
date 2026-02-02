@@ -1,0 +1,15 @@
+---
+export interface Props {
+  variant?: 'default' | 'alt';
+  class?: string;
+}
+
+const { variant = 'default', class: className = '' } = Astro.props;
+
+const baseClasses = variant === 'alt' ? 'card-alt' : 'card';
+const classes = `${baseClasses} ${className}`.trim();
+---
+
+<div class={classes}>
+  <slot />
+</div>

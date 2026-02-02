@@ -1,0 +1,58 @@
+---
+import { CALENDAR_LINK } from "../config";
+import Button from "./Button.astro";
+---
+
+<section class="py-10 md:py-14 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div
+      class="bg-md-green rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden"
+    >
+      <!-- Background decoration -->
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"
+      >
+      </div>
+
+      <div
+        class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8"
+      >
+        <div class="text-center lg:text-left">
+          <h2
+            class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-800 bg-white px-4 py-2 rounded-xl mb-4 -rotate-2 inline-block shadow-lg"
+          >
+            Trabajemos juntos
+          </h2>
+          <p class="text-lg text-white/80 max-w-md">
+            ¿Tienes una idea o proyecto en mente? Nos encantaría escucharte
+          </p>
+        </div>
+        <div class="flex-shrink-0">
+          <Button
+            href={CALENDAR_LINK}
+            variant="primary"
+            class="bg-white text-md-green hover:bg-cream hover:text-primary-800 text-lg px-8 py-4 shadow-lg"
+          >
+            Escríbenos
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+              ></path>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+              ></path>
+            </svg>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

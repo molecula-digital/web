@@ -1,92 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-import { Picture } from "astro:assets";
-import hero from "../assets/hero.png";
-import me from "../assets/me-1.jpg";
-import Sofinanzas from "./products/sofinanzas.astro";
+import Hero from "../components/Hero.astro";
+import Skills from "../components/Skills.astro";
+import UseCases from "../components/UseCases.astro";
+import BigPromise from "../components/BigPromise.astro";
+import Process from "../components/Process.astro";
+import FAQ from "../components/FAQ.astro";
+import CTA from "../components/CTA.astro";
+import Showcase from "../components/Showcase.astro";
 ---
 
 <BaseLayout>
-  <section id="hero">
-    <div
-      class="flex flex-col-reverse lg:flex-row max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto lg:gap-8 xl:gap-0 items-center"
-    >
-      <div class="lg:mr-auto place-self-center text-center lg:text-left">
-        <h1
-          class="text-primary-800 max-w-4xl mx-auto lg:mx-0 mb-4 text-3xl font-extrabold tracking-tighter leading-1 md:text-4xl xl:text-5xl"
-        >
-          Construimos productos digitales <span class="text-md-green"
-            >bonitos</span
-          > & <span class="text-md-green">útiles&nbsp;</span>
-        </h1>
-        <p
-          class="max-w-2xl mx-auto lg:mx-0 mt-4 text-gray-700 lg:mb-8 text-base md:text-lg"
-        >
-          Somos soñadores y hacedores apasionados por la tecnología y la
-          innovación, comprometidos con por un desarrollo con enfoque humano.
-        </p>
-      </div>
-      <div class="flex justify-center lg:justify-start">
-        <Picture
-          widths={[1024]}
-          src={hero}
-          alt="Molecula Digital"
-          loading="lazy"
-          class="px-16 md:px-8 lg:px-0"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews">
-    <div
-      class="flex max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto text-center"
-    >
-      <figure class="max-w-screen-md mx-auto">
-        <svg
-          class="h-8 mx-auto mb-3 text-primary-950"
-          viewBox="0 0 24 27"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-            fill="currentColor"></path>
-        </svg>
-        <blockquote>
-          <p class="text-base md:text-lg font-medium text-gray-700">
-            Me encanta el maravilloso enfoque que tienen al construir productos,
-            ¡son simplemente geniales! Se sumergen por completo en abordar el
-            problema y encontrar la mejor solución con menos fricción. El
-            cuidado y dedicación que ponen en cada idea es realmente destacable,
-            ¡guau!
-          </p>
-        </blockquote>
-        <figcaption class="flex items-center justify-center mt-6 space-x-3">
-          <div class="flex items-center divide-x-2 divide-gray-500">
-            <div class="pr-3 font-medium text-gray-900">🐕 Doge</div>
-            <div class="pl-3 text-sm font-light text-gray-500">
-              Mascota del CEO
-            </div>
-          </div>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section id="products" class="bg-cream-alt">
-    <div class="max-w-screen-xl px-4 md:px-20 pt-5 pb-8 mx-auto">
-      <h1
-        class="text-3xl text-primary-800 pt-5 font-black text-center md:text-4xl"
-      >
-        Nuestros productos
-      </h1>
-      <p class="text-base font-medium pt-3 pb-10 text-gray-600 text-center">
-        No es mucho, pero es trabajo honesto 🧐
-      </p>
-      <Sofinanzas />
-    </div>
-  </section>
-
+  <Hero />
+  <Skills />
+  <UseCases />
+  <BigPromise />
+  <Process />
+  <Showcase />
+  <FAQ />
+  <CTA
+    title="Trabajemos juntos"
+    subtitle="Tienes una idea o proyecto en mente? Nos encantaria escucharte."
+    email="alfonso@molecula.digital"
+    buttonText="Escribenos"
+  />
 </BaseLayout>

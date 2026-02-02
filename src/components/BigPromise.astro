@@ -1,0 +1,55 @@
+---
+import { CALENDAR_LINK } from "../config";
+import Button from "./Button.astro";
+---
+
+<section
+  class="py-12 md:py-16 bg-primary-800 text-white relative overflow-hidden"
+>
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div
+      class="absolute inset-0"
+      style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"
+    >
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 md:px-8 text-center">
+    <span
+      class="inline-block px-4 py-1.5 bg-md-green text-white text-sm font-bold rounded-full mb-4"
+      >Nuestra promesa</span
+    >
+
+    <h2
+      class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+    >
+      IA integrada en tu negocio
+      <br />
+      <span class="text-md-green">en 90 dias</span>
+    </h2>
+
+    <p class="text-lg md:text-xl text-primary-200 max-w-2xl mx-auto mb-8">
+      Modernizamos empresas con tecnologias de inteligencia artificial. Sin
+      complicaciones, sin excusas.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button
+        href={CALENDAR_LINK}
+        target="_blank"
+        variant="primary"
+        class="bg-md-green hover:bg-eucalyptus-600 text-lg px-8 py-4"
+      >
+        Cuentanos tus problemas
+      </Button>
+      <Button
+        href="#process"
+        variant="secondary"
+        class="border-white text-white hover:bg-white hover:text-primary-800 text-lg px-8 py-4"
+      >
+        Conoce el proceso
+      </Button>
+    </div>
+  </div>
+</section>

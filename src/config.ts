@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = "molecula.digital";
 export const SITE_DESCRIPTION = "console.log('Hello, world!');";
+export const CALENDAR_LINK = "https://calendar.app.google/NkHPMLnn8DVB8Cg7A";
