@@ -22,12 +22,13 @@ function DNAHelix() {
         y: i,
         rotationY: (30 * i * Math.PI) / 180,
       })),
-    []
+    [],
   );
 
   useFrame(() => {
     if (holderRef.current) {
-      holderRef.current.rotation.y += 0.002;
+      // rotation speed
+      holderRef.current.rotation.y += 0.0008;
     }
   });
 
@@ -35,7 +36,11 @@ function DNAHelix() {
     <group ref={holderRef} position={[7.5, 0, 3]}>
       <group position={[0, -16, 0]}>
         {rows.map((row, i) => (
-          <group key={i} position={[0, row.y, 0]} rotation={[0, row.rotationY, 0]}>
+          <group
+            key={i}
+            position={[0, row.y, 0]}
+            rotation={[0, row.rotationY, 0]}
+          >
             <mesh rotation={[0, 0, Math.PI / 2]} geometry={cylinderGeo}>
               <meshBasicMaterial color={cylinderColor} />
             </mesh>
