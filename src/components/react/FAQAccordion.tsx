@@ -2,38 +2,48 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Bot, Clock, DollarSign, Users, Shield, Wrench } from "lucide-react";
+import { ChevronDown, Bot, Clock, DollarSign, Users, Shield, Wrench, Rocket, Code } from "lucide-react";
 
 const faqs = [
   {
     icon: Bot,
-    question: "¿Que tipo de procesos puedo automatizar?",
-    answer: "Practicamente cualquier tarea repetitiva: gestion de leads, facturacion, reportes, onboarding de empleados, atencion al cliente, sincronizacion de datos entre sistemas, y mucho mas.",
+    question: "¿Qué tipo de procesos puedo automatizar?",
+    answer: "Prácticamente cualquier tarea repetitiva: gestión de leads, facturación, reportes, onboarding de empleados, atención al cliente, sincronización de datos entre sistemas, y mucho más.",
   },
   {
     icon: Clock,
-    question: "¿Cuanto tiempo toma implementar una solucion?",
-    answer: "Dependiendo de la complejidad, entre 2 a 12 semanas. Proyectos simples como chatbots pueden estar listos en dias. Integraciones mas complejas requieren mas tiempo de planeacion y pruebas.",
+    question: "¿Cuánto tiempo toma implementar una solución?",
+    answer: "Dependiendo de la complejidad, entre 2 a 12 semanas. Proyectos simples como chatbots pueden estar listos en días. Integraciones más complejas requieren más tiempo de planeación y pruebas.",
   },
   {
     icon: DollarSign,
-    question: "¿Cuanto cuesta automatizar mis procesos?",
-    answer: "Los costos varian segun el alcance. Ofrecemos soluciones desde proyectos puntuales hasta planes de soporte mensual. Agenda una llamada para una cotizacion personalizada.",
+    question: "¿Cuánto cuesta automatizar mis procesos?",
+    answer: "Los costos varían según el alcance. Ofrecemos soluciones desde proyectos puntuales hasta planes de soporte mensual. Agenda una llamada para una cotización personalizada.",
   },
   {
     icon: Users,
-    question: "¿La automatizacion reemplazara a mis empleados?",
-    answer: "No, la automatizacion esta disenada para potenciar y empoderar a tu equipo al encargarse de tareas repetitivas, permitiendoles trabajar de manera mas estrategica y creativa.",
+    question: "¿La automatización reemplazará a mis empleados?",
+    answer: "No, la automatización está diseñada para potenciar a tu equipo al encargarse de tareas repetitivas, permitiéndoles trabajar de manera más estratégica y creativa.",
   },
   {
     icon: Shield,
-    question: "¿Mis datos estaran seguros?",
-    answer: "Absolutamente. Implementamos las mejores practicas de seguridad, encriptacion de datos y cumplimos con regulaciones de privacidad. Trabajamos con proveedores de nube certificados.",
+    question: "¿Mis datos estarán seguros?",
+    answer: "Absolutamente. Implementamos las mejores prácticas de seguridad, encriptación de datos y cumplimos con regulaciones de privacidad. Trabajamos con proveedores de nube certificados.",
   },
   {
     icon: Wrench,
-    question: "¿Que pasa si algo deja de funcionar?",
-    answer: "Ofrecemos soporte continuo y monitoreo. Si algo falla, nuestro equipo lo detecta y resuelve rapidamente. Tambien capacitamos a tu equipo para resolver problemas comunes.",
+    question: "¿Qué pasa si algo deja de funcionar?",
+    answer: "Ofrecemos soporte continuo y monitoreo. Si algo falla, nuestro equipo lo detecta y resuelve rápidamente. También capacitamos a tu equipo para resolver problemas comunes.",
+  },
+  {
+    icon: Rocket,
+    question: "¿Trabajan con startups o solo empresas establecidas?",
+    answer: "Trabajamos con ambos. Para startups ofrecemos MVPs y soluciones escalables. Para empresas establecidas, integramos IA en sistemas existentes sin interrumpir operaciones.",
+  },
+  {
+    icon: Code,
+    question: "¿Qué pasa si ya tengo un equipo técnico?",
+    answer: "Podemos colaborar con tu equipo, capacitarlos en herramientas de IA, o encargarnos del proyecto completo. Nos adaptamos a lo que funcione mejor para ti.",
   },
 ];
 

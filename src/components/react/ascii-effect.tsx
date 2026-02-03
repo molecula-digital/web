@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { forwardRef, useMemo } from "react"
-import { Effect, BlendFunction } from "postprocessing"
-import { Uniform, Vector2 } from "three"
+import { forwardRef, useMemo } from "react";
+import { Effect, BlendFunction } from "postprocessing";
+import { Uniform, Vector2 } from "three";
 
 const fragmentShader = `
 // Basic uniforms
@@ -225,17 +225,17 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 
   outputColor = vec4(finalColor, cellColor.a);
 }
-`
+`;
 
 // Module-level variables for state management
-let _time = 0
-let _deltaAccumulator = 0
-let _cellSize = 4
-let _invert = false
-let _colorMode = false
-let _asciiStyle = 0
-let _resolution = new Vector2(1920, 1080)
-let _mousePos = new Vector2(0, 0)
+let _time = 0;
+let _deltaAccumulator = 0;
+let _cellSize = 4;
+let _invert = false;
+let _colorMode = false;
+let _asciiStyle = 0;
+let _resolution = new Vector2(1920, 1080);
+let _mousePos = new Vector2(0, 0);
 
 class AsciiEffectImpl extends Effect {
   constructor(options: any = {}) {
@@ -246,12 +246,12 @@ class AsciiEffectImpl extends Effect {
       style = 0,
       resolution = new Vector2(1920, 1080),
       mousePos = new Vector2(0, 0),
-      postfx = {}
-    } = options
+      postfx = {},
+    } = options;
 
     super("AsciiEffect", fragmentShader, {
       blendFunction: BlendFunction.NORMAL,
-      uniforms: new Map<string, Uniform<unknown>>([
+      uniforms: new Map([
         ["cellSize", new Uniform(cellSize)],
         ["invert", new Uniform(invert)],
         ["colorMode", new Uniform(color)],
@@ -283,37 +283,37 @@ class AsciiEffectImpl extends Effect {
         ["brightnessAdjust", new Uniform(postfx.brightnessAdjust || 0)],
         ["contrastAdjust", new Uniform(postfx.contrastAdjust || 1)],
       ]),
-    })
+    });
 
-    _cellSize = cellSize
-    _invert = invert
-    _colorMode = color
-    _asciiStyle = style
-    _resolution = resolution
-    _mousePos = mousePos
+    _cellSize = cellSize;
+    _invert = invert;
+    _colorMode = color;
+    _asciiStyle = style;
+    _resolution = resolution;
+    _mousePos = mousePos;
   }
 
   update(_renderer: any, _inputBuffer: any, deltaTime: number) {
-    const targetFPS = this.uniforms.get("targetFPS")!.value as number
+    const targetFPS = this.uniforms.get("targetFPS")!.value as number;
 
     if (targetFPS > 0) {
-      const frameDuration = 1 / targetFPS
-      _deltaAccumulator += deltaTime
+      const frameDuration = 1 / targetFPS;
+      _deltaAccumulator += deltaTime;
       if (_deltaAccumulator >= frameDuration) {
-        _time += frameDuration
-        _deltaAccumulator = _deltaAccumulator % frameDuration
+        _time += frameDuration;
+        _deltaAccumulator = _deltaAccumulator % frameDuration;
       }
     } else {
-      _time += deltaTime
+      _time += deltaTime;
     }
 
-    this.uniforms.get("time")!.value = _time
-    this.uniforms.get("cellSize")!.value = _cellSize
-    this.uniforms.get("invert")!.value = _invert
-    this.uniforms.get("colorMode")!.value = _colorMode
-    this.uniforms.get("asciiStyle")!.value = _asciiStyle
-    this.uniforms.get("resolution")!.value = _resolution
-    this.uniforms.get("mousePos")!.value = _mousePos
+    this.uniforms.get("time")!.value = _time;
+    this.uniforms.get("cellSize")!.value = _cellSize;
+    this.uniforms.get("invert")!.value = _invert;
+    this.uniforms.get("colorMode")!.value = _colorMode;
+    this.uniforms.get("asciiStyle")!.value = _asciiStyle;
+    this.uniforms.get("resolution")!.value = _resolution;
+    this.uniforms.get("mousePos")!.value = _mousePos;
   }
 }
 
@@ -325,25 +325,39 @@ export const AsciiEffect = forwardRef<Effect, any>((props, ref) => {
     color = false,
     postfx = {},
     resolution = new Vector2(1920, 1080),
-    mousePos = new Vector2(0, 0)
-  } = props
+    mousePos = new Vector2(0, 0),
+  } = props;
 
-  const styleMap: Record<string, number> = { standard: 0, dense: 1, minimal: 2, blocks: 3 }
-  const styleNum = styleMap[style] || 0
+  const styleMap: Record<string, number> = {
+    standard: 0,
+    dense: 1,
+    minimal: 2,
+    blocks: 3,
+  };
+  const styleNum = styleMap[style] || 0;
 
-  _cellSize = cellSize
-  _invert = invert
-  _colorMode = color
-  _asciiStyle = styleNum
-  _resolution = resolution
-  _mousePos = mousePos
+  _cellSize = cellSize;
+  _invert = invert;
+  _colorMode = color;
+  _asciiStyle = styleNum;
+  _resolution = resolution;
+  _mousePos = mousePos;
 
   const effect = useMemo(
-    () => new AsciiEffectImpl({ cellSize, invert, color, style: styleNum, postfx, resolution, mousePos }),
-    []
-  )
+    () =>
+      new AsciiEffectImpl({
+        cellSize,
+        invert,
+        color,
+        style: styleNum,
+        postfx,
+        resolution,
+        mousePos,
+      }),
+    [],
+  );
 
-  return <primitive ref={ref} object={effect} dispose={null} />
-})
+  return <primitive ref={ref} object={effect} dispose={null} />;
+});
 
-AsciiEffect.displayName = "AsciiEffect"
+AsciiEffect.displayName = "AsciiEffect";

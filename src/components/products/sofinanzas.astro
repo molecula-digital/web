@@ -3,24 +3,33 @@ import { Picture } from "astro:assets";
 import mockups from "../../assets/sofinanzas.png";
 
 const features = [
-  "Registra todos tus gastos en cuestion de segundos",
-  "Consejos de finanzas personales",
-  "Conoce hacia donde fluyen tus ingresos",
-  "Utiliza I.A para conocer tus comportamientos financieros"
+  "Registra gastos en segundos, directo desde WhatsApp",
+  "Recibe consejos personalizados de finanzas",
+  "Visualiza hacia dónde va tu dinero cada mes",
+  "IA que detecta patrones y te ayuda a ahorrar",
 ];
 ---
 
-<div class="bg-white border border-primary-200 rounded-2xl p-5 md:p-8 hover:border-primary-300 hover:shadow-xl transition-all duration-500">
+<div
+  class="bg-white border border-primary-200 rounded-2xl p-5 md:p-8 hover:border-primary-300 hover:shadow-xl transition-all duration-500"
+>
   <div class="flex flex-col-reverse lg:flex-row items-center gap-8">
     <div class="lg:w-1/2">
-      <span class="inline-block px-3 py-1 bg-eucalyptus-100 text-eucalyptus-700 text-xs font-semibold rounded-full mb-4">Beta abierta</span>
-      <h2 class="font-display text-3xl md:text-4xl font-bold mb-3 text-primary-800">Sofinanzas<span class="text-md-green">.</span></h2>
+      <span
+        class="inline-block px-3 py-1 bg-eucalyptus-100 text-eucalyptus-700 text-xs font-semibold rounded-full mb-4"
+        >+2000 usuarios</span
+      >
+      <h2
+        class="font-display text-3xl md:text-4xl font-bold mb-3 text-primary-800"
+      >
+        Sofinanzas<span class="text-md-green">.</span>
+      </h2>
       <p class="text-lg font-medium mb-3 text-primary-600">
         Registra tus gastos con un simple mensaje de WhatsApp
       </p>
       <p class="mb-6 text-gray-600">
         SofIA es un bot de WhatsApp que te ayuda a llevar un control de tus
-        gastos e ingresos y te ensena a mejorar tu salud financiera.
+        gastos e ingresos y te enseña a mejorar tu salud financiera.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 mb-8">
         <a
@@ -50,16 +59,27 @@ const features = [
         </a>
       </div>
       <ul class="space-y-3">
-        {features.map(feature => (
-          <li class="flex items-start gap-3">
-            <span class="text-md-green mt-0.5 flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-            </span>
-            <span class="text-gray-600">{feature}</span>
-          </li>
-        ))}
+        {
+          features.map((feature) => (
+            <li class="flex items-start gap-3">
+              <span class="text-md-green mt-0.5 flex-shrink-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span class="text-gray-600">{feature}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
     <div class="lg:w-1/2">

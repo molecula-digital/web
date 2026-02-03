@@ -3,7 +3,7 @@ import { SkillsGrid } from "./react/SkillsGrid";
 import { LogoCloud } from "./react/LogoCloud";
 ---
 
-<section id="skills" class="py-8 md:py-10">
+<section id="skills" class="py-4 md:py-8">
   <div class="max-w-6xl mx-auto px-4 md:px-8">
     <div class="text-center mb-6">
       <span
@@ -13,21 +13,23 @@ import { LogoCloud } from "./react/LogoCloud";
       <h2
         class="font-display text-3xl md:text-4xl font-bold text-primary-800 mt-2 mb-3"
       >
-        Potenciamos tu negocio con IA y tecnologia
+        Potenciamos tu negocio con IA y tecnología
       </h2>
       <p class="text-gray-600 max-w-2xl mx-auto mb-6">
-        Implementamos soluciones <strong>efectivas y rentables</strong> usando las
-        mejores herramientas. Conocemos los sistemas que generan resultados reales.
+        Construimos e implementamos soluciones con <strong>IA y desarrollo tradicional</strong>.
+        Elegimos la tecnología correcta para cada problema, no la más popular.
       </p>
-      <LogoCloud client:visible />
+      <LogoCloud client:load />
     </div>
     <div class="mt-8">
-      <SkillsGrid client:visible />
+      <SkillsGrid client:load />
     </div>
 
     <!-- Value Props -->
     <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-2">
-      <div class="bg-primary-800 text-white rounded-2xl p-6 md:p-8">
+      <div
+        class="bg-primary-800 border-primary-950 border shadow-md text-white rounded-2xl p-6 md:p-8"
+      >
         <div
           class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4"
         >
@@ -50,12 +52,14 @@ import { LogoCloud } from "./react/LogoCloud";
           Sistemas a tu medida
         </h3>
         <p class="text-primary-200 text-sm">
-          Disenamos soluciones personalizadas que se adaptan a tus procesos, no
-          al reves.
+          Diseñamos soluciones personalizadas que se adaptan a tus procesos, no
+          al revés.
         </p>
       </div>
 
-      <div class="bg-md-green text-white rounded-2xl p-6 md:p-8">
+      <div
+        class="bg-md-green border-green-haze-800 border shadow-sm text-white rounded-2xl p-6 md:p-8"
+      >
         <div
           class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4"
         >
@@ -78,12 +82,14 @@ import { LogoCloud } from "./react/LogoCloud";
           Las mejores herramientas
         </h3>
         <p class="text-white/80 text-sm">
-          Usamos tecnologia probada y de clase mundial para garantizar
+          Usamos tecnología probada y de clase mundial para garantizar
           estabilidad y escalabilidad.
         </p>
       </div>
 
-      <div class="bg-eucalyptus-100 text-primary-800 rounded-2xl p-6 md:p-8">
+      <div
+        class="bg-eucalyptus-100 border-eucalyptus-600 border shadow-sm text-primary-800 rounded-2xl p-6 md:p-8"
+      >
         <div
           class="w-12 h-12 bg-md-green/10 rounded-xl flex items-center justify-center mb-4"
         >
@@ -104,8 +110,8 @@ import { LogoCloud } from "./react/LogoCloud";
         </div>
         <h3 class="font-display text-xl font-semibold mb-2">Ciclo completo</h3>
         <p class="text-gray-600 text-sm">
-          Desde el diseno hasta el despliegue y soporte continuo. Tu solo
-          enfocate en tu negocio.
+          Desde el diseño hasta el despliegue y soporte continuo. Tú solo
+          enfócate en tu negocio.
         </p>
       </div>
     </div>

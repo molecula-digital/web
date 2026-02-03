@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         cream: "#f6f3ec",
         ["cream-alt"]: "#eeebe5",
-        ["md-green"]: "#08a462",
+        ["md-green"]: "#019f5f",
         "green-haze": {
           50: "#effef7",
           100: "#d9ffee",

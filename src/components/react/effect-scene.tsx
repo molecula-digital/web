@@ -8,19 +8,20 @@ import { AsciiEffect } from "./ascii-effect";
 
 function DNAHelix() {
   const holderRef = useRef<Group>(null);
-  const rows = 21;
-  const cylinderColor = "#2e50ac";
-  const ballColor = "#74ffc4";
+  const rows = 48;
+  const cylinderColor = "#7cf9c3";
+  const ballColor = "#08a462";
 
   useFrame(() => {
     if (holderRef.current) {
-      holderRef.current.rotation.y += 0.01;
+      // speed
+      holderRef.current.rotation.y += 0.003;
     }
   });
 
   return (
-    <group ref={holderRef} position={[6.5, 0, 0]}>
-      <group position={[0, -10, 0]}>
+    <group ref={holderRef} position={[7.5, 0, 3]}>
+      <group position={[0, -16, 0]}>
         {Array.from({ length: rows }).map((_, i) => (
           <group
             key={i}
@@ -90,7 +91,11 @@ export function EffectScene() {
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
       <Canvas
         camera={{ position: [0, 0, 20], fov: 75 }}
-        gl={{ alpha: true }}
+        gl={{
+          alpha: true,
+          antialias: false,
+          powerPreference: "high-performance",
+        }}
         style={{ background: "transparent" }}
       >
         <DNAHelix />
@@ -98,7 +103,7 @@ export function EffectScene() {
         <EffectComposer>
           <AsciiEffect
             style="standard"
-            cellSize={6}
+            cellSize={4}
             invert={false}
             color={true}
             resolution={resolution}
@@ -108,12 +113,12 @@ export function EffectScene() {
               scanlineCount: 200,
               targetFPS: 0,
               jitterIntensity: 0,
-              jitterSpeed: 1,
+              jitterSpeed: 0.5,
               mouseGlowEnabled: false,
               mouseGlowRadius: 200,
               mouseGlowIntensity: 1.5,
               vignetteIntensity: 0.3,
-              vignetteRadius: 0.8,
+              vignetteRadius: 2,
               colorPalette: 0,
               curvature: 0,
               aberrationStrength: 0,

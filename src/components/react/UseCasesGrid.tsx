@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { useMemo } from "react";
 import {
   GitBranch,
   Sparkles,
@@ -36,12 +37,12 @@ import {
 
 const useCases = [
   { icon: GitBranch, label: "Workflows" },
-  { icon: Sparkles, label: "Personalizacion" },
+  { icon: Sparkles, label: "Personalización" },
   { icon: BarChart3, label: "Insights" },
   { icon: FileText, label: "Reportes" },
   { icon: Briefcase, label: "Portafolios" },
   { icon: ShoppingCart, label: "E-commerce" },
-  { icon: Receipt, label: "Facturacion" },
+  { icon: Receipt, label: "Facturación" },
   { icon: Users, label: "Recursos Humanos" },
   { icon: PenTool, label: "Copywriting" },
   { icon: ClipboardList, label: "Formularios" },
@@ -55,57 +56,119 @@ const useCases = [
   { icon: Target, label: "Lead scoring" },
   { icon: TrendingUp, label: "Forecasting" },
   { icon: Layers, label: "Inventarios" },
-  { icon: Search, label: "Busqueda" },
+  { icon: Search, label: "Búsqueda" },
   { icon: Bell, label: "Notificaciones" },
   { icon: Clock, label: "Seguimiento" },
-  { icon: Globe, label: "Traduccion" },
-  { icon: Smartphone, label: "Apps moviles" },
+  { icon: Globe, label: "Traducción" },
+  { icon: Smartphone, label: "Apps móviles" },
   { icon: CreditCard, label: "Pagos" },
-  { icon: Truck, label: "Logistica" },
+  { icon: Truck, label: "Logística" },
   { icon: HeartPulse, label: "Bienestar" },
-  { icon: GraduationCap, label: "Capacitacion" },
+  { icon: GraduationCap, label: "Capacitación" },
   { icon: Building2, label: "Operaciones" },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.03,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
-};
+// Seeded random for consistent values between renders
+function seededRandom(seed: number) {
+  const x = Math.sin(seed * 9999) * 10000;
+  return x - Math.floor(x);
+}
 
 export function UseCasesGrid() {
+  const prefersReducedMotion = useReducedMotion();
+
+  // Generate random values once per mount, consistent across renders
+  const itemAnimations = useMemo(
+    () =>
+      useCases.map((_, i) => {
+        const seed = i + 1;
+        return {
+          // Random starting position for burst effect
+          initialX: (seededRandom(seed) - 0.5) * 60,
+          initialY: (seededRandom(seed * 2) - 0.5) * 40 + 20,
+          // Stagger in waves - items closer to center appear first
+          delay: seededRandom(seed * 3) * 0.15,
+          // Slight rotation for playful effect
+          initialRotate: (seededRandom(seed * 4) - 0.5) * 12,
+        };
+      }),
+    []
+  );
+
+  if (prefersReducedMotion) {
+    return (
+      <div className="flex flex-wrap justify-center gap-3">
+        {useCases.map((useCase) => (
+          <div
+            key={useCase.label}
+            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-primary-200 rounded-full hover:border-md-green hover:shadow-md transition-all cursor-default"
+          >
+            <useCase.icon className="w-4 h-4 text-md-green" strokeWidth={2} />
+            <span className="text-sm font-medium text-primary-700">
+              {useCase.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <motion.div
-      variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-100px" }}
       className="flex flex-wrap justify-center gap-3"
     >
-      {useCases.map((useCase) => (
-        <motion.div
-          key={useCase.label}
-          variants={itemVariants}
-          whileHover={{ scale: 1.05, y: -2 }}
-          className="flex items-center gap-2 px-4 py-2.5 bg-white border border-primary-200 rounded-full hover:border-md-green hover:shadow-md transition-all cursor-default"
-        >
-          <useCase.icon className="w-4 h-4 text-md-green" strokeWidth={2} />
-          <span className="text-sm font-medium text-primary-700">{useCase.label}</span>
-        </motion.div>
-      ))}
+      {useCases.map((useCase, i) => {
+        const anim = itemAnimations[i];
+        return (
+          <motion.div
+            key={useCase.label}
+            initial={{
+              opacity: 0,
+              scale: 0.3,
+              x: anim.initialX,
+              y: anim.initialY,
+              rotate: anim.initialRotate,
+            }}
+            variants={{
+              hidden: {
+                opacity: 0,
+                scale: 0.3,
+                x: anim.initialX,
+                y: anim.initialY,
+                rotate: anim.initialRotate,
+              },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                x: 0,
+                y: 0,
+                rotate: 0,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25,
+                  delay: anim.delay,
+                },
+              },
+            }}
+            whileHover={{
+              scale: 1.08,
+              y: -4,
+              transition: { type: "spring", stiffness: 400, damping: 17 },
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-primary-200 rounded-full hover:border-md-green hover:shadow-md transition-colors cursor-default"
+          >
+            <useCase.icon className="w-4 h-4 text-md-green" strokeWidth={2} />
+            <span className="text-sm font-medium text-primary-700">
+              {useCase.label}
+            </span>
+          </motion.div>
+        );
+      })}
     </motion.div>
   );
 }
