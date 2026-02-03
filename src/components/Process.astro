@@ -1,24 +1,23 @@
 ---
+import Section from "./Section.astro";
 import { ProcessSteps } from "./react/ProcessSteps";
 ---
 
-<section id="process" class="py-10 md:py-14 bg-cream-alt">
-  <div class="max-w-4xl mx-auto px-4 md:px-8">
-    <div class="text-center mb-8">
-      <span
-        class="text-md-green font-mono text-sm font-semibold tracking-wider uppercase"
-        >Nuestro proceso</span
-      >
-      <h2
-        class="font-display text-3xl md:text-5xl font-bold text-primary-800 mt-3 mb-4"
-      >
-        De la idea a la realidad
-      </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Un proceso simple y transparente para llevar tu proyecto al siguiente
-        nivel. Sin sorpresas.
-      </p>
-    </div>
-    <ProcessSteps client:load />
+<Section id="process" bg="cream-alt" maxWidth="6xl">
+  <div class="text-center mb-8">
+    <span
+      class="text-md-green font-mono text-sm font-semibold tracking-wider uppercase"
+      >Nuestro proceso</span
+    >
+    <h2
+      class="font-display text-3xl md:text-5xl font-bold text-primary-800 mt-3 mb-4"
+    >
+      De la idea a la realidad
+    </h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Un proceso simple y transparente para llevar tu proyecto al siguiente
+      nivel. Sin sorpresas.
+    </p>
   </div>
-</section>
+  <ProcessSteps client:load />
+</Section>

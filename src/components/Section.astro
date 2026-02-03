@@ -1,0 +1,39 @@
+---
+import Container from "./Container.astro";
+
+interface Props {
+  id?: string;
+  bg?: "cream-alt" | "primary" | "none";
+  padding?: "sm" | "md" | "lg";
+  maxWidth?: "4xl" | "6xl";
+  class?: string;
+  containerClass?: string;
+}
+
+const {
+  id,
+  bg = "none",
+  padding = "md",
+  maxWidth = "6xl",
+  class: className = "",
+  containerClass = "",
+} = Astro.props;
+
+const bgClasses: Record<string, string> = {
+  none: "",
+  "cream-alt": "bg-cream-alt",
+  primary: "bg-primary-800 text-white",
+};
+
+const paddingClasses: Record<string, string> = {
+  sm: "py-4 md:py-8",
+  md: "py-10 md:py-14",
+  lg: "py-12 md:py-16",
+};
+---
+
+<section id={id} class:list={[bgClasses[bg], paddingClasses[padding], className]}>
+  <Container maxWidth={maxWidth} class={containerClass}>
+    <slot />
+  </Container>
+</section>

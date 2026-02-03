@@ -1,0 +1,17 @@
+---
+interface Props {
+  maxWidth?: "4xl" | "6xl";
+  class?: string;
+}
+
+const { maxWidth = "6xl", class: className = "" } = Astro.props;
+
+const widthClasses: Record<string, string> = {
+  "4xl": "max-w-4xl",
+  "6xl": "max-w-6xl",
+};
+---
+
+<div class:list={[widthClasses[maxWidth], "mx-auto px-4 md:px-8", className]}>
+  <slot />
+</div>

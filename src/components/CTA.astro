@@ -1,10 +1,11 @@
 ---
+import Container from "./Container.astro";
 import { CALENDAR_LINK } from "../config";
 import Button from "./Button.astro";
 ---
 
 <section class="py-10 md:py-14 px-4 md:px-8">
-  <div class="max-w-6xl mx-auto">
+  <Container>
     <div
       class="bg-md-green rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden"
     >
@@ -55,5 +56,5 @@ import Button from "./Button.astro";
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 </section>

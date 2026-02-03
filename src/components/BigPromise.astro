@@ -1,4 +1,5 @@
 ---
+import Container from "./Container.astro";
 import { CALENDAR_LINK } from "../config";
 import Button from "./Button.astro";
 ---
@@ -15,7 +16,7 @@ import Button from "./Button.astro";
     </div>
   </div>
 
-  <div class="relative max-w-6xl mx-auto px-4 md:px-8 text-center">
+  <Container class="relative text-center">
     <span
       class="inline-block px-4 py-1.5 bg-md-green text-white text-sm font-bold rounded-full mb-4"
       >Nuestra promesa</span
@@ -51,5 +52,5 @@ import Button from "./Button.astro";
         Conoce el proceso
       </Button>
     </div>
-  </div>
+  </Container>
 </section>
