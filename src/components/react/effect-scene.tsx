@@ -1,48 +1,50 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer } from "@react-three/postprocessing";
-import { Vector2, Group } from "three";
+import { Vector2, Group, CylinderGeometry, SphereGeometry } from "three";
 import { AsciiEffect } from "./ascii-effect";
 
 function DNAHelix() {
   const holderRef = useRef<Group>(null);
-  const rows = 48;
   const cylinderColor = "#7cf9c3";
   const ballColor = "#08a462";
 
+  // Shared geometries - all meshes reference the same GPU data
+  const cylinderGeo = useMemo(() => new CylinderGeometry(0.2, 0.2, 5, 8), []);
+  const sphereGeo = useMemo(() => new SphereGeometry(0.55, 8, 8), []);
+
+  // Pre-compute row transforms
+  const rows = useMemo(
+    () =>
+      Array.from({ length: 48 }, (_, i) => ({
+        y: i,
+        rotationY: (30 * i * Math.PI) / 180,
+      })),
+    []
+  );
+
   useFrame(() => {
     if (holderRef.current) {
-      // speed
-      holderRef.current.rotation.y += 0.003;
+      holderRef.current.rotation.y += 0.002;
     }
   });
 
   return (
     <group ref={holderRef} position={[7.5, 0, 3]}>
       <group position={[0, -16, 0]}>
-        {Array.from({ length: rows }).map((_, i) => (
-          <group
-            key={i}
-            position={[0, i * 1, 0]}
-            rotation={[0, (30 * i * Math.PI) / 180, 0]}
-          >
-            {/* Connecting cylinder */}
-            <mesh rotation={[0, 0, Math.PI / 2]}>
-              <cylinderGeometry args={[0.2, 0.2, 5, 16]} />
+        {rows.map((row, i) => (
+          <group key={i} position={[0, row.y, 0]} rotation={[0, row.rotationY, 0]}>
+            <mesh rotation={[0, 0, Math.PI / 2]} geometry={cylinderGeo}>
               <meshBasicMaterial color={cylinderColor} />
             </mesh>
 
-            {/* Right ball */}
-            <mesh position={[3, 0, 0]}>
-              <sphereGeometry args={[0.55, 16, 16]} />
+            <mesh position={[3, 0, 0]} geometry={sphereGeo}>
               <meshBasicMaterial color={ballColor} />
             </mesh>
 
-            {/* Left ball */}
-            <mesh position={[-2.5, 0, 0]}>
-              <sphereGeometry args={[0.55, 16, 16]} />
+            <mesh position={[-2.5, 0, 0]} geometry={sphereGeo}>
               <meshBasicMaterial color={ballColor} />
             </mesh>
           </group>
