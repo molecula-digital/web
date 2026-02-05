@@ -28,7 +28,7 @@ function DNAHelix() {
   useFrame(() => {
     if (holderRef.current) {
       // rotation speed
-      holderRef.current.rotation.y += 0.001;
+      holderRef.current.rotation.y += 0.0012;
     }
   });
 
