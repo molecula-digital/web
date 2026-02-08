@@ -18,7 +18,7 @@ const faqs = [
   {
     icon: DollarSign,
     question: "¿Cuánto cuesta?",
-    answer: "Depende del alcance. Trabajamos desde proyectos puntuales hasta planes de soporte mensual. Agenda una llamada y te damos una cotización personalizada.",
+    answer: "Proyectos desde $500 USD. La mayoría se entrega en 2 a 8 semanas. Agenda una llamada y te damos una cotización personalizada.",
   },
   {
     icon: Users,
