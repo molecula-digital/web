@@ -16,39 +16,39 @@ const skills = [
     icon: MessageSquare,
     title: "Chatbots",
     description:
-      "Atiende clientes 24/7 y reduce hasta 60% las consultas repetitivas",
+      "Atención 24/7. Hasta 60% menos consultas repetitivas.",
     className: "md:col-span-2 md:row-span-1",
   },
   {
     icon: Cog,
-    title: "Automatización de procesos",
-    description: "Elimina horas de trabajo manual cada semana",
+    title: "Procesos",
+    description: "Horas de trabajo manual, eliminadas cada semana.",
     className: "md:col-span-1 md:row-span-2",
   },
   {
     icon: GitBranch,
     title: "Workflows",
     description:
-      "Conecta tus herramientas favoritas en un solo flujo automatizado",
+      "Tus herramientas favoritas, conectadas en un solo flujo.",
     className: "md:col-span-2 md:row-span-1",
   },
   {
     icon: Users,
-    title: "Automatización de RH",
-    description: "De 2 semanas a 2 días: contratación y onboarding acelerado",
+    title: "Recursos Humanos",
+    description: "Contratación y onboarding: de 2 semanas a 2 días.",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     icon: BarChart3,
-    title: "Automatización de CRM",
+    title: "Ventas y CRM",
     description:
-      "Nunca pierdas un lead: seguimiento automático y alertas inteligentes",
+      "Seguimiento automático. Ningún lead se pierde.",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     icon: Wallet,
-    title: "Automatización financiera",
-    description: "Facturación, conciliación y reportes sin intervención manual",
+    title: "Finanzas",
+    description: "Facturación, conciliación y reportes. Sin tocar un botón.",
     className: "md:col-span-1 md:row-span-1",
   },
 ];

@@ -8,42 +8,42 @@ const faqs = [
   {
     icon: Bot,
     question: "¿Qué tipo de procesos puedo automatizar?",
-    answer: "Prácticamente cualquier tarea repetitiva: gestión de leads, facturación, reportes, onboarding de empleados, atención al cliente, sincronización de datos entre sistemas, y mucho más.",
+    answer: "Cualquier tarea repetitiva: gestión de leads, facturación, reportes, onboarding, atención al cliente, sincronización de datos y más.",
   },
   {
     icon: Clock,
     question: "¿Cuánto tiempo toma implementar una solución?",
-    answer: "Dependiendo de la complejidad, entre 2 a 12 semanas. Proyectos simples como chatbots pueden estar listos en días. Integraciones más complejas requieren más tiempo de planeación y pruebas.",
+    answer: "Entre 2 y 12 semanas, según la complejidad. Un chatbot puede estar listo en días. Integraciones más complejas necesitan más planeación y pruebas.",
   },
   {
     icon: DollarSign,
-    question: "¿Cuánto cuesta automatizar mis procesos?",
-    answer: "Los costos varían según el alcance. Ofrecemos soluciones desde proyectos puntuales hasta planes de soporte mensual. Agenda una llamada para una cotización personalizada.",
+    question: "¿Cuánto cuesta?",
+    answer: "Depende del alcance. Trabajamos desde proyectos puntuales hasta planes de soporte mensual. Agenda una llamada y te damos una cotización personalizada.",
   },
   {
     icon: Users,
-    question: "¿La automatización reemplazará a mis empleados?",
-    answer: "No, la automatización está diseñada para potenciar a tu equipo al encargarse de tareas repetitivas, permitiéndoles trabajar de manera más estratégica y creativa.",
+    question: "¿Esto reemplaza a mi equipo?",
+    answer: "No. Tu equipo se libera de tareas repetitivas para enfocarse en trabajo estratégico y creativo. Hacen más, no menos.",
   },
   {
     icon: Shield,
     question: "¿Mis datos estarán seguros?",
-    answer: "Absolutamente. Implementamos las mejores prácticas de seguridad, encriptación de datos y cumplimos con regulaciones de privacidad. Trabajamos con proveedores de nube certificados.",
+    answer: "Sí. Encriptación, mejores prácticas de seguridad y proveedores de nube certificados. Tus datos están protegidos.",
   },
   {
     icon: Wrench,
     question: "¿Qué pasa si algo deja de funcionar?",
-    answer: "Ofrecemos soporte continuo y monitoreo. Si algo falla, nuestro equipo lo detecta y resuelve rápidamente. También capacitamos a tu equipo para resolver problemas comunes.",
+    answer: "Soporte continuo y monitoreo activo. Si algo falla, lo detectamos y resolvemos. También capacitamos a tu equipo para resolver problemas comunes.",
   },
   {
     icon: Rocket,
-    question: "¿Trabajan con startups o solo empresas establecidas?",
-    answer: "Trabajamos con ambos. Para startups ofrecemos MVPs y soluciones escalables. Para empresas establecidas, integramos IA en sistemas existentes sin interrumpir operaciones.",
+    question: "¿Trabajan con startups?",
+    answer: "Con ambos. Para startups: MVPs y soluciones que escalan. Para empresas establecidas: integración en sistemas existentes sin interrumpir operaciones.",
   },
   {
     icon: Code,
     question: "¿Qué pasa si ya tengo un equipo técnico?",
-    answer: "Podemos colaborar con tu equipo, capacitarlos en herramientas de IA, o encargarnos del proyecto completo. Nos adaptamos a lo que funcione mejor para ti.",
+    answer: "Colaboramos con tu equipo, lo capacitamos en IA, o nos encargamos del proyecto completo. Lo que funcione mejor para ti.",
   },
 ];
 

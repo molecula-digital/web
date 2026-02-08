@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     icon: Phone,
     title: "Llamada inicial",
-    description: "Entendemos tu negocio y definimos objetivos.",
+    description: "Entendemos tus objetivos y definimos el alcance.",
   },
   {
     number: "02",
@@ -20,7 +20,7 @@ const steps = [
     number: "03",
     icon: Map,
     title: "Diseño",
-    description: "Arquitectura y roadmap validado contigo.",
+    description: "Arquitectura y roadmap, validados contigo.",
   },
   {
     number: "04",
@@ -32,7 +32,7 @@ const steps = [
     number: "05",
     icon: CheckCircle,
     title: "Entrega",
-    description: "Pruebas, capacitación y documentación.",
+    description: "Pruebas, capacitación y lanzamiento.",
   },
 ];
 
