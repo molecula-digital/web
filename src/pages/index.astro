@@ -16,9 +16,10 @@ import Showcase from "../components/Showcase.astro";
   <UseCases />
   <BigPromise />
   <Process />
-  <Showcase />
-  <FAQ />
+  <Showcase client:visible />
+  <FAQ client:visible />
   <CTA
+    client:visible
     title="¿Listo para el siguiente paso?"
     subtitle="Agenda una llamada de 30 minutos. Te mostramos qué es posible y cómo empezar."
     email="alfonso@molecula.digital"
