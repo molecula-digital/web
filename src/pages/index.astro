@@ -8,9 +8,55 @@ import Process from "../components/Process.astro";
 import FAQ from "../components/FAQ.astro";
 import CTA from "../components/CTA.astro";
 import Showcase from "../components/Showcase.astro";
+import RecentPosts from "../components/RecentPosts.astro";
+import { faqs } from "../data/faqs";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Molecula Digital",
+      url: "https://molecula.digital",
+      logo: "https://molecula.digital/share.png",
+      description:
+        "Integramos inteligencia artificial en tus procesos para que tu equipo se enfoque en lo que importa.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Culiacán",
+        addressRegion: "Sinaloa",
+        addressCountry: "MX",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "alfonso@molecula.digital",
+        contactType: "sales",
+        availableLanguage: "Spanish",
+      },
+      sameAs: ["https://github.com/molecula-digital"],
+    },
+    {
+      "@type": "WebSite",
+      name: "Molecula Digital",
+      url: "https://molecula.digital",
+      inLanguage: "es-MX",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
+};
 ---
 
-<BaseLayout>
+<BaseLayout structuredData={structuredData}>
   <Hero />
   <Skills />
   <UseCases />
@@ -18,6 +64,7 @@ import Showcase from "../components/Showcase.astro";
   <Process />
   <Showcase client:visible />
   <FAQ client:visible />
+  <RecentPosts />
   <CTA
     client:visible
     title="¿Listo para el siguiente paso?"

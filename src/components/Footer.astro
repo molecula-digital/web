@@ -6,9 +6,10 @@ const currentYear = new Date().getFullYear();
 
 const links = [
   { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "#skills" },
-  { label: "Proceso", href: "#process" },
-  { label: "Productos", href: "#products" },
+  { label: "Servicios", href: "/#skills" },
+  { label: "Proceso", href: "/#process" },
+  { label: "Productos", href: "/#products" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const socials = [
@@ -62,7 +63,7 @@ const socials = [
 
       <!-- Links -->
       <div>
-        <h4 class="font-semibold text-white mb-4">Enlaces</h4>
+        <p class="font-semibold text-white mb-4">Enlaces</p>
         <ul class="space-y-3">
           {
             links.map((link) => (
@@ -81,7 +82,7 @@ const socials = [
 
       <!-- Contact -->
       <div>
-        <h4 class="font-semibold text-white mb-4">Contacto</h4>
+        <p class="font-semibold text-white mb-4">Contacto</p>
         <ul class="space-y-3 text-sm">
           <li>
             <a

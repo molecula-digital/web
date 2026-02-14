@@ -1,0 +1,156 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../../components/Container.astro";
+
+function getSlug(id: string) {
+  return id.replace(/\.(md|mdx)$/, "");
+}
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getCollection("blog", ({ data }) => data.published);
+  const posts = allPosts.sort(
+    (a, b) =>
+      new Date(b.data.publishDate).valueOf() -
+      new Date(a.data.publishDate).valueOf()
+  );
+  return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const dateFormat = new Intl.DateTimeFormat("es-MX", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Blog — Molecula Digital",
+  description:
+    "Artículos sobre inteligencia artificial, automatización y tecnología para empresas en México.",
+  url: "https://molecula.digital/blog",
+  inLanguage: "es-MX",
+  publisher: {
+    "@type": "Organization",
+    name: "Molecula Digital",
+    url: "https://molecula.digital",
+  },
+};
+---
+
+<BaseLayout
+  title={`Blog${page.currentPage > 1 ? ` — Página ${page.currentPage}` : ""} — Molecula Digital`}
+  description="Artículos sobre inteligencia artificial, automatización y tecnología para empresas en México."
+  structuredData={structuredData}
+>
+  <section class="py-12 md:py-20 px-4 md:px-8">
+    <Container>
+      <div class="max-w-3xl mx-auto mb-12 text-center">
+        <span
+          class="text-md-green font-mono text-sm font-semibold tracking-wider uppercase"
+        >
+          Blog
+        </span>
+        <h1
+          class="font-display text-4xl md:text-5xl font-bold text-primary-800 mt-2 mb-4"
+        >
+          Ideas, guías y recursos
+        </h1>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">
+          Compartimos lo que aprendemos sobre IA, automatización y desarrollo de
+          software para empresas.
+        </p>
+      </div>
+
+      {
+        page.data.length === 0 ? (
+          <div class="text-center py-16">
+            <p class="text-gray-500 text-lg">
+              Pronto publicaremos contenido. Regresa pronto.
+            </p>
+          </div>
+        ) : (
+          <div class="max-w-3xl mx-auto space-y-6">
+            {page.data.map((post) => (
+              <article class="group">
+                <a
+                  href={`/blog/${getSlug(post.id)}/`}
+                  class="block bg-white border border-primary-200 rounded-2xl p-6 md:p-8 hover:border-primary-400 hover:shadow-lg transition-all duration-300"
+                >
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    {post.data.tags.map((tag: string) => (
+                      <span class="inline-block px-3 py-1 bg-eucalyptus-100 text-eucalyptus-700 text-xs font-semibold rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h2 class="font-display text-xl md:text-2xl font-bold text-primary-800 mb-2 group-hover:text-md-green transition-colors">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-gray-600 mb-4">{post.data.description}</p>
+                  <div class="flex items-center justify-between text-sm text-gray-500">
+                    <time
+                      datetime={new Date(post.data.publishDate).toISOString()}
+                    >
+                      {dateFormat.format(new Date(post.data.publishDate))}
+                    </time>
+                    <span class="text-md-green font-medium group-hover:underline">
+                      Leer más &rarr;
+                    </span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        )
+      }
+
+      {/* Pagination */}
+      {
+        page.lastPage > 1 && (
+          <nav
+            aria-label="Paginación del blog"
+            class="max-w-3xl mx-auto mt-12 flex items-center justify-center gap-2"
+          >
+            {page.url.prev && (
+              <a
+                href={page.url.prev}
+                class="px-4 py-2 text-sm font-medium text-primary-800 bg-white border border-primary-200 rounded-lg hover:border-primary-400 hover:shadow transition-all"
+              >
+                &larr; Anterior
+              </a>
+            )}
+            {Array.from({ length: page.lastPage }, (_, i) => i + 1).map(
+              (num) => (
+                <a
+                  href={num === 1 ? "/blog" : `/blog/${num}`}
+                  class:list={[
+                    "w-10 h-10 flex items-center justify-center text-sm font-medium rounded-lg transition-all",
+                    num === page.currentPage
+                      ? "bg-primary-800 text-white"
+                      : "text-primary-800 bg-white border border-primary-200 hover:border-primary-400 hover:shadow",
+                  ]}
+                  aria-current={num === page.currentPage ? "page" : undefined}
+                >
+                  {num}
+                </a>
+              )
+            )}
+            {page.url.next && (
+              <a
+                href={page.url.next}
+                class="px-4 py-2 text-sm font-medium text-primary-800 bg-white border border-primary-200 rounded-lg hover:border-primary-400 hover:shadow transition-all"
+              >
+                Siguiente &rarr;
+              </a>
+            )}
+          </nav>
+        )
+      }
+    </Container>
+  </section>
+</BaseLayout>

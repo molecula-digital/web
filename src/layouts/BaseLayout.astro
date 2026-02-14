@@ -5,28 +5,64 @@ import Header from "../components/Header.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 
+interface Props {
+  image?: string;
+  title?: string;
+  description?: string;
+  type?: string;
+  publishDate?: Date;
+  updatedDate?: string;
+  structuredData?: object;
+  [key: string]: any;
+}
+
 const {
   image,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
+  type = "website",
+  publishDate,
+  updatedDate,
+  structuredData,
 } = Astro.props;
+
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Molecula Digital",
+  url: "https://molecula.digital",
+  logo: "https://molecula.digital/share.png",
+  description: SITE_DESCRIPTION,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Culiacán",
+    addressRegion: "Sinaloa",
+    addressCountry: "MX",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "alfonso@molecula.digital",
+    contactType: "sales",
+    availableLanguage: "Spanish",
+  },
+  sameAs: ["https://github.com/molecula-digital"],
+};
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-MX" dir="ltr">
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} type={type} publishDate={publishDate} updatedDate={updatedDate} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData || defaultStructuredData)}
+    />
   </head>
   <body
     class="bg-cream flex flex-col min-h-screen selection:bg-green-haze-900 selection:text-white antialiased"
   >
     <Header />
-    <main
-      class="flex-grow w-full overflow-x-hidden"
-      id="main"
-      role="main"
-      aria-label="Main content"
-    >
+    <main class="flex-grow w-full overflow-x-hidden" id="main">
       <slot />
     </main>
     <Footer />

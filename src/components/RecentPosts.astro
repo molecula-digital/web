@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import Section from "./Section.astro";
+import Button from "./Button.astro";
+
+function getSlug(id: string) {
+  return id.replace(/\.(md|mdx)$/, "");
+}
+
+const allPosts = await getCollection("blog", ({ data }) => data.published);
+const recentPosts = allPosts
+  .sort(
+    (a, b) =>
+      new Date(b.data.publishDate).valueOf() -
+      new Date(a.data.publishDate).valueOf()
+  )
+  .slice(0, 3);
+
+const dateFormat = new Intl.DateTimeFormat("es-MX", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+---
+
+{
+  recentPosts.length > 0 && (
+    <Section id="blog" padding="md">
+      <div class="text-center mb-8">
+        <span class="text-md-green font-mono text-sm font-semibold tracking-wider uppercase">
+          Blog
+        </span>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-800 mt-2 mb-3">
+          Últimos artículos
+        </h2>
+        <p class="text-gray-600 max-w-xl mx-auto">
+          Ideas y recursos sobre IA, automatización y tecnología para tu
+          negocio.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {recentPosts.map((post) => (
+          <a
+            href={`/blog/${getSlug(post.id)}/`}
+            class="group block bg-white border border-primary-200 rounded-2xl p-6 hover:border-primary-400 hover:shadow-lg transition-all duration-300"
+          >
+            <div class="flex flex-wrap gap-2 mb-3">
+              {post.data.tags.slice(0, 2).map((tag: string) => (
+                <span class="inline-block px-2 py-0.5 bg-eucalyptus-100 text-eucalyptus-700 text-xs font-semibold rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h3 class="font-display text-lg font-bold text-primary-800 mb-2 group-hover:text-md-green transition-colors">
+              {post.data.title}
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              {post.data.description}
+            </p>
+            <time
+              datetime={new Date(post.data.publishDate).toISOString()}
+              class="text-xs text-gray-500"
+            >
+              {dateFormat.format(new Date(post.data.publishDate))}
+            </time>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <Button href="/blog" variant="secondary">
+          Ver todos los artículos
+        </Button>
+      </div>
+    </Section>
+  )
+}

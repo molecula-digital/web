@@ -1,9 +1,16 @@
 ---
 import { Picture } from "astro:assets";
 import logo from "../assets/md-full-alt.png";
+
+const navLinks = [
+  { label: "Servicios", href: "/#skills" },
+  { label: "Proceso", href: "/#process" },
+  { label: "Productos", href: "/#products" },
+  { label: "Blog", href: "/blog" },
+];
 ---
 
-<header role="banner">
+<header>
   <!-- Ribbon -->
   <div class="bg-black text-white text-center text-xs font-medium py-2">
     Soluciones de tecnología para empresas y emprendedores
@@ -11,19 +18,33 @@ import logo from "../assets/md-full-alt.png";
 
   <nav
     id="navigation-menu"
-    aria-label="Main menu"
-    class="bg-cream w-full py-3 flex flex-row items-center place-content-center"
+    aria-label="Menú principal"
+    class="bg-cream w-full py-3 px-4 md:px-8"
   >
-    <div class="flex">
-      <a target="_self" href="/" aria-label="Go to homepage">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="/" aria-label="Ir al inicio">
         <Picture
           class="h-10 object-contain drop-shadow-sm"
           widths={[300, 600, 900]}
           src={logo}
-          alt="Logo molecula digital"
+          alt="Logo Molecula Digital"
           loading="eager"
         />
       </a>
+      <ul class="hidden md:flex items-center gap-6">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm font-medium text-primary-800 hover:text-md-green transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </nav>
 </header>
