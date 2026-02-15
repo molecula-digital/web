@@ -2,59 +2,77 @@
 import Container from "./Container.astro";
 import { CALENDAR_LINK } from "../config";
 import Button from "./Button.astro";
+import calendarIcon from "../assets/google-calendar.svg";
+
+export interface Props {
+  variant?: "primary" | "secondary";
+}
+
+const { variant = "primary" } = Astro.props;
+const isPrimary = variant === "primary";
 ---
 
-<section class="py-10 md:py-14 px-4 md:px-8">
-  <Container>
-    <div
-      class="bg-md-green rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden"
-    >
-      <!-- Background decoration -->
-      <div
-        class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"
-      >
-      </div>
-      <div
-        class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"
-      >
-      </div>
+<section class={isPrimary ? "py-4 px-4 md:px-8" : "py-8"}>
+  {
+    isPrimary ? (
+      <Container>
+        <div class="bg-md-green rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
 
-      <div
-        class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8"
-      >
-        <div class="text-center lg:text-left">
-          <h2
-            class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-800 bg-white px-4 py-2 rounded-xl mb-4 -rotate-2 inline-block shadow-lg"
-          >
-            Trabajemos juntos
-          </h2>
-          <p class="text-lg text-white/80 max-w-md">
-            ¿Tienes una idea o proyecto en mente? Nos encantaría escucharte
-          </p>
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="text-center lg:text-left">
+              <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-800 bg-white px-4 py-2 rounded-xl mb-4 -rotate-2 inline-block shadow-lg">
+                Trabajemos juntos
+              </h2>
+              <p class="text-lg text-white/80 max-w-md">
+                ¿Tienes una idea o proyecto en mente? Nos encantaría escucharte
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <Button
+                href={CALENDAR_LINK}
+                target="_blank"
+                variant="primary"
+                class="bg-white text-md-green hover:bg-cream hover:text-primary-800 text-lg px-8 py-4 shadow-lg"
+              >
+                Agenda una llamada
+                <img
+                  src={calendarIcon.src}
+                  alt=""
+                  class="h-5 w-5 ml-2 inline-block"
+                />
+              </Button>
+            </div>
+          </div>
         </div>
-        <div class="flex-shrink-0">
+      </Container>
+    ) : (
+      <div class="border-t border-primary-200 pt-8 mt-8">
+        <div class="bg-eucalyptus-50 rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-center sm:text-left">
+            <p class="font-display text-xl md:text-2xl font-bold text-primary-800 mb-1">
+              ¿Quieres llevar esto a tu negocio?
+            </p>
+            <p class="text-gray-600 text-sm md:text-base">
+              Agenda una llamada y platiquemos sobre tu proyecto.
+            </p>
+          </div>
           <Button
             href={CALENDAR_LINK}
             target="_blank"
             variant="primary"
-            class="bg-white text-md-green hover:bg-cream hover:text-primary-800 text-lg px-8 py-4 shadow-lg"
+            class="whitespace-nowrap flex-shrink-0"
           >
             Agenda una llamada
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-              ></path>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-              ></path>
-            </svg>
+            <img
+              src={calendarIcon.src}
+              alt=""
+              class="h-5 w-5 ml-2 inline-block"
+            />
           </Button>
         </div>
       </div>
-    </div>
-  </Container>
+    )
+  }
 </section>

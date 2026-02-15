@@ -1,6 +1,11 @@
 import type { CollectionEntry } from "astro:content";
 import path from "path";
 
+export function getReadingTime(content: string): number {
+  const words = content.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export function sortMDByDate(posts: CollectionEntry<"blog">[] = []) {
   return posts.sort(
     (a, b) =>

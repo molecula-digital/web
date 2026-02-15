@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import logo from "../assets/md-full-alt.png";
+import { MobileNav } from "./react/MobileNav";
 
 const navLinks = [
   { label: "Servicios", href: "/#skills" },
@@ -19,25 +20,26 @@ const navLinks = [
   <nav
     id="navigation-menu"
     aria-label="Menú principal"
-    class="bg-cream w-full py-3 px-4 md:px-8"
+    class="bg-cream w-full py-3"
   >
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="/" aria-label="Ir al inicio">
+    <!-- Desktop -->
+    <div class="hidden md:flex max-w-6xl mx-auto px-4 md:px-8 items-center justify-between">
+      <a href="/" aria-label="Ir al inicio" class="hover:drop-shadow-md transition-all duration-300">
         <Picture
-          class="h-10 object-contain drop-shadow-sm"
+          class="h-10 w-auto drop-shadow-sm"
           widths={[300, 600, 900]}
           src={logo}
           alt="Logo Molecula Digital"
           loading="eager"
         />
       </a>
-      <ul class="hidden md:flex items-center gap-6">
+      <ul class="flex items-center gap-6">
         {
           navLinks.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="text-sm font-medium text-primary-800 hover:text-md-green transition-colors"
+                class="text-sm font-medium text-primary-800 hover:text-md-green transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-md-green after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.label}
               </a>
@@ -45,6 +47,22 @@ const navLinks = [
           ))
         }
       </ul>
+    </div>
+
+    <!-- Mobile -->
+    <div class="md:hidden flex items-center justify-center px-4 relative">
+      <a href="/" aria-label="Ir al inicio" class="hover:drop-shadow-md transition-all duration-300">
+        <Picture
+          class="h-10 w-auto drop-shadow-sm"
+          widths={[300, 600, 900]}
+          src={logo}
+          alt="Logo Molecula Digital"
+          loading="eager"
+        />
+      </a>
+      <div class="absolute right-4">
+        <MobileNav client:load links={navLinks} />
+      </div>
     </div>
   </nav>
 </header>
