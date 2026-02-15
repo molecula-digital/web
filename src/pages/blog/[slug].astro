@@ -53,6 +53,9 @@ const structuredData = {
     "@id": `https://molecula.digital/blog/${slug}/`,
   },
   inLanguage: "es-MX",
+  ...(post.data.heroImage && {
+    image: new URL(post.data.heroImage.src, Astro.site).href,
+  }),
   ...(post.data.tags.length > 0 && { keywords: post.data.tags.join(", ") }),
 };
 ---
@@ -60,6 +63,7 @@ const structuredData = {
 <BaseLayout
   title={`${post.data.title} — Molecula Digital`}
   description={post.data.description}
+  image={post.data.heroImage?.src}
   type="article"
   publishDate={publishDate}
   updatedDate={post.data.updatedDate}
