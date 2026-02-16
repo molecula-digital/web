@@ -6,6 +6,7 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://molecula.digital",
   integrations: [mdx(), sitemap(), tailwind(), react()],
   site: "https://molecula.digital",
   compressHTML: true,
